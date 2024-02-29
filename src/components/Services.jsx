@@ -18,7 +18,7 @@ export default function Services() {
        <h3 className='m-4 text-1xl font-bold'>Web Design</h3>
        <p className='m-4'>Lorem ipsum dolor sit amet consectetur adipisicing elit.
         Accusantium labore praesentium voluptatem
-        nihil delectus cum porro alias ipsum
+        nihil delectus cum porro alias
         </p>
        
         </div>
@@ -27,7 +27,7 @@ export default function Services() {
        <h3 className='text-1xl font-bold m-4'>Web Development</h3>
        <p className='m-4'>Lorem ipsum dolor sit amet consectetur adipisicing elit.
         Accusantium labore praesentium voluptatem
-        nihil delectus cum porro alias ipsum
+        nihil delectus cum porro alias
         </p>
        
         </div>
@@ -36,7 +36,7 @@ export default function Services() {
        <h3 className='text-1xl font-bold m-4'>Clean Code</h3>
        <p className='m-4'>Lorem ipsum dolor sit amet consectetur adipisicing elit.
         Accusantium labore praesentium voluptatem
-        nihil delectus cum porro alias ipsum
+        nihil delectus cum porro alias
         </p>
        
         </div>
@@ -45,7 +45,7 @@ export default function Services() {
        <h3 className='text-1xl font-bold m-4'>Clean Code</h3>
        <p className='m-4'>Lorem ipsum dolor sit amet consectetur adipisicing elit.
         Accusantium labore praesentium voluptatem
-        nihil delectus cum porro alias ipsum
+        nihil delectus cum porro alias
         </p>
        
         </div>
@@ -54,7 +54,7 @@ export default function Services() {
        <h3 className='text-1xl font-bold m-4'>Clean Code</h3>
        <p className='m-4'>Lorem ipsum dolor sit amet consectetur adipisicing elit.
         Accusantium labore praesentium voluptatem
-        nihil delectus cum porro alias ipsum
+        nihil delectus cum porro alias
         </p>
        
         </div>
@@ -63,7 +63,7 @@ export default function Services() {
        <h3 className='text-1xl font-bold m-4'>Clean Code</h3>
        <p className='m-4'>Lorem ipsum dolor sit amet consectetur adipisicing elit.
         Accusantium labore praesentium voluptatem
-        nihil delectus cum porro alias ipsum
+        nihil delectus cum porro alias
         </p>
        
         </div>
