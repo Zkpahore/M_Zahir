@@ -12,55 +12,55 @@ export default function Services() {
              sit suscipit ducimus dolore ratione repellat fuga,
             </p>
       </div>
-      <div className='mt-10 flex flex-wrap  gap-10 justify-center '>
-        <div className='box-border border-gray-500 h-1/4 w-1/4 p-4 border-2 justify-center text-center flex-shrink-0'>
+      <div className='mt-10 flex flex-wrap gap-6 justify-center'>
+        <div className='box-border border-gray-500 w-72 h-72 p-4 border-2 justify-center text-center flex-shrink-0'>
        <p className='text-6xl'> <FaCss3Alt className='bg-yellow-400 rounded-full p-3 mx-auto m-4'/></p>
-       <h3 className='text-3xl m-4'>Web Design</h3>
+       <h3 className='m-4 text-1xl font-bold'>Web Design</h3>
        <p className='m-4'>Lorem ipsum dolor sit amet consectetur adipisicing elit.
         Accusantium labore praesentium voluptatem
         nihil delectus cum porro alias ipsum
         </p>
        
         </div>
-        <div className='box-border border-gray-500 h-1/4 w-1/4 p-4 border-2 justify-center text-center'>
+        <div className='box-border border-gray-500 w-72 h-72 p-4 border-2 justify-center text-center'>
        <p className='text-6xl'> <FaReact className='bg-yellow-400 rounded-full p-3 mx-auto m-4'/></p>
-       <h3 className='text-3xl m-4'>Web Development</h3>
+       <h3 className='text-1xl font-bold m-4'>Web Development</h3>
        <p className='m-4'>Lorem ipsum dolor sit amet consectetur adipisicing elit.
         Accusantium labore praesentium voluptatem
         nihil delectus cum porro alias ipsum
         </p>
        
         </div>
-        <div className='box-border border-gray-500 h-1/4 w-1/4 p-4 border-2 justify-center text-center'>
+        <div className='box-border border-gray-500 w-72 h-72 p-4 border-2 justify-center text-center'>
        <p className='text-6xl'> <FaCode className='bg-yellow-400 rounded-full p-3 mx-auto m-4'/></p>
-       <h3 className='text-3xl m-4'>Clean Code</h3>
+       <h3 className='text-1xl font-bold m-4'>Clean Code</h3>
        <p className='m-4'>Lorem ipsum dolor sit amet consectetur adipisicing elit.
         Accusantium labore praesentium voluptatem
         nihil delectus cum porro alias ipsum
         </p>
        
         </div>
-        <div className='box-border border-gray-500 h-1/4 w-1/4 p-4 border-2 justify-center text-center'>
+        <div className='box-border border-gray-500 w-72 h-72 p-4 border-2 justify-center text-center'>
        <p className='text-6xl'> <FaCode className='bg-yellow-400 rounded-full p-3 mx-auto m-4'/></p>
-       <h3 className='text-3xl m-4'>Clean Code</h3>
+       <h3 className='text-1xl font-bold m-4'>Clean Code</h3>
        <p className='m-4'>Lorem ipsum dolor sit amet consectetur adipisicing elit.
         Accusantium labore praesentium voluptatem
         nihil delectus cum porro alias ipsum
         </p>
        
         </div>
-        <div className='box-border border-gray-500 h-1/4 w-1/4 p-4 border-2 justify-center text-center'>
+        <div className='box-border border-gray-500 w-72 h-72 p-4 border-2 justify-center text-center'>
        <p className='text-6xl'> <FaCode className='bg-yellow-400 rounded-full p-3 mx-auto m-4'/></p>
-       <h3 className='text-3xl m-4'>Clean Code</h3>
+       <h3 className='text-1xl font-bold m-4'>Clean Code</h3>
        <p className='m-4'>Lorem ipsum dolor sit amet consectetur adipisicing elit.
         Accusantium labore praesentium voluptatem
         nihil delectus cum porro alias ipsum
         </p>
        
         </div>
-        <div className='box-border border-gray-500 h-1/4 w-1/4 p-4 border-2 justify-center text-center'>
+        <div className='box-border border-gray-500 w-72 h-72 p-4 border-2 justify-center text-center'>
        <p className='text-6xl'> <FaCode className='bg-yellow-400 rounded-full p-3 mx-auto m-4'/></p>
-       <h3 className='text-3xl m-4'>Clean Code</h3>
+       <h3 className='text-1xl font-bold m-4'>Clean Code</h3>
        <p className='m-4'>Lorem ipsum dolor sit amet consectetur adipisicing elit.
         Accusantium labore praesentium voluptatem
         nihil delectus cum porro alias ipsum

@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import Dash from './Dashboard';
 import Serv from './Services';
+import '../App.css';
 export default function App() {
   // State to store the current name
   const [name, setName] = useState("Muhammad Zahir");
