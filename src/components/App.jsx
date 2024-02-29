@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import Dash from './Dashboard';
 import Serv from './Services';
+import MyPrt from './MyPort';
+import Img from './Img';
 import '../App.css';
 export default function App() {
   // State to store the current name
@@ -36,7 +38,7 @@ export default function App() {
     <>
     <div className='bg-slate-900 w-full  block md:flex lg:flex text-white'>
       <div className='w-full md:w-1/2 lg:w-1/2  flex-shrink-0 gap-10 lg:m-24'>
-        <h2 className='text-2xl lg:text-5xl  font-extrabold ml-6'>Hello!<br />I Am {name}<span className='text-gray-400'>|</span></h2>
+        <h2 className='text-2xl lg:text-5xl  font-extrabold ml-6 py-2'>Hello!<br />I Am {name}<span className='text-gray-400'>|</span></h2>
         <p className='p-2 mt-6 '>I'm a Web Developer with extensive experience for over 2 years. My expertise is to create Front-End & Back-End of a web application</p>
         <button className='mt-10 ml-4 items-center bg-slate-900 text-white p-3 border border-white rounded-full hover:bg-blue-800 font-bold'>Contact Me</button>
       </div>
@@ -46,6 +48,8 @@ export default function App() {
     </div>
     <Dash />
     <Serv />
+    <Img />
+    <MyPrt />
     </>
   );
 }
