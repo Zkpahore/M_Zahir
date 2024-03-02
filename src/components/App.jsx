@@ -3,6 +3,8 @@ import Dash from './Dashboard';
 import Serv from './Services';
 import MyPrt from './MyPort';
 import Img from './Img';
+import Con from './Contact';
+import Footer from './Footer';
 import '../App.css';
 export default function App() {
   // State to store the current name
@@ -50,6 +52,8 @@ export default function App() {
     <Serv />
     <Img />
     <MyPrt />
+    <Con />
+    <Footer />
     </>
   );
 }

@@ -13,13 +13,13 @@ const Myrt = () => {
   ];
   return (
     <div className='grid  justify-center items-center'>
-      <div className="grid gap-2 grid-cols-2">
+      <div className="grid gap-6 grid-cols-2 md:grid-cols-3 lg:grid-cols-3">
       
       {images.map((imageUrl, index) => (
         <img
           key={index} 
           src={imageUrl}
-          alt={`Image ${index + 1}`} className='w-36 h-36 m-1'
+          alt={`Image ${index + 1}`} className='w-40 h-40 md:w-64 md:h-64 lg:w-72 lg:h-72'
         />
       ))}
     </div>
@@ -86,11 +86,11 @@ const MyPrt = () => {
       <h1 className='text-3xl py-6'>My <span className='text-yellow-400'>Portfolio</span></h1>
       <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.<br /> Voluptates eum nisi debitis deleniti reprehenderit esse harum,</p>
       <div className='py-10'>
-      <button className='m-3 border-2 px-6 py-1 rounded-full border-yellow-200 hover:bg-yellow-400 bg-yellow-400 font-semibold'
+      <button className='m-2 lg:m-6 md:m-4 border-2 px-6 py-1 rounded-full border-yellow-200 hover:bg-yellow-400 focus:bg-yellow-400 font-semibold'
        onClick={() => handleButtonClick("Myrt")}>All</button>
-      <button className='m-3 border-2 px-6 py-1 rounded-full border-yellow-200 hover:bg-yellow-400 font-semibold' 
+      <button className='m-2 lg:m-6 md:m-4 border-2 px-3 py-1 rounded-full border-yellow-200 hover:bg-yellow-400 focus:bg-yellow-400 font-semibold' 
       onClick={() => handleButtonClick("Data 2")}>Designs</button>
-      <button className='m-3 border-2 px-6 py-1 rounded-full border-yellow-200 hover:bg-yellow-400 font-semibold'
+      <button className='m-2 lg:m-6 md:m-4 border-2 px-3 py-1 rounded-full border-yellow-200 hover:bg-yellow-400 focus:bg-yellow-400 font-semibold'
        onClick={() => handleButtonClick("Data 3")}>Full Stack</button>
 
       <div className='py-4'>{displayedComponent}</div>
