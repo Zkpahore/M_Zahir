@@ -4,16 +4,16 @@ import React, { useState } from 'react';
 
 const Myrt = () => {
   const images = [
+    'img231.jpg',
     'imga.jpg',
+    'jfhu.png',
+    'zkpahore.jpg',
     'imga.jpg',
-    'imga.jpg',
-    'imga.jpg',
-    'imga.jpg',
-    'imga.jpg',
+    'zkpo.png',
   ];
   return (
     <div className='grid  justify-center items-center'>
-      <div className="grid gap-6 grid-cols-2 md:grid-cols-3 lg:grid-cols-3">
+      <div className="grid gap-2 md:gap-4 lg:gap-6 grid-cols-2 md:grid-cols-3 lg:grid-cols-3">
       
       {images.map((imageUrl, index) => (
         <img
@@ -28,27 +28,46 @@ const Myrt = () => {
 };
 
 const Data2Component = () => {
+  const imagel = [
+    'img231.jpg',
+    'imga.jpg',
+    'jfhu.png',
+  ];
 
   return (
-    <div>
-      <h1 className='text-blue-500'>Data 2 Component </h1>
-      <p>This is the Data 2 component.</p>
-      <p>This is the Data 2 component.</p>
-      <p>This is the Data 2 component.</p>
-      <p>This is the Data 2 component.</p>
+    <div className='grid  justify-center items-center'>
+      <div className="grid gap-2 md:gap-4 lg:gap-6 grid-cols-2 md:grid-cols-3 lg:grid-cols-3">
+      
+      {imagel.map((imageUrl, index) => (
+        <img
+          key={index} 
+          src={imageUrl}
+          alt={`Image ${index + 1}`} className='w-40 h-40 md:w-64 md:h-64 lg:w-72 lg:h-72'
+        />
+      ))}
+    </div>
     </div>
   );
 };
 
 const Data3Component = () => {
+  const imager = [
+    'zkpahore.jpg',
+    'imga.jpg',
+    'zkpo.png',
+  ];
   return (
-    <div>
-      <h1 className='text-green-500'>Data 3 Component </h1>
-      <p>This is the Data 3 component.</p>
-      <p>This is the Data 3 component.</p>
-      <p>This is the Data 3 component.</p>
-      <p>This is the Data 3 component.</p>
-      <p>This is the Data 3 component.</p>
+    <div className='grid  justify-center items-center'>
+      <div className="grid gap-2 md:gap-4 lg:gap-6 grid-cols-2 md:grid-cols-3 lg:grid-cols-3">
+      
+      {imager.map((imageUrl, index) => (
+        <img
+          key={index} 
+          src={imageUrl}
+          alt={`Image ${index + 1}`} className='w-40 h-40 md:w-64 md:h-64 lg:w-72 lg:h-72'
+        />
+      ))}
+    </div>
     </div>
   );
 };

@@ -12,7 +12,7 @@ export default function Services() {
              sit suscipit ducimus dolore ratione repellat fuga,
             </p>
       </div>
-     <div className='flex flex-wrap justify-center items-center my-10 py-6'>
+     <div className='flex flex-wrap justify-center items-center py-10'>
   <div className='box-border border-gray-500 border-2 text-center w-72 mx-2 my-2'>
     <p className='text-4xl'><FaCss3Alt className='bg-yellow-400 rounded-full p-1 mx-auto m-2'/></p>
     <h3 className='m-1 text-xl font-bold'>Web Design</h3>
