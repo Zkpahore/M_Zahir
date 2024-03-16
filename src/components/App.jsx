@@ -5,7 +5,6 @@ import Serv from './Services';
 import MyPrt from './MyPort';
 import Img from './Img';
 import Con from './Contact';
-import Footer from './Footer';
 import '../App.css';
 
 const nameVariants = {
@@ -34,7 +33,7 @@ const textVariants = {
 
 export default function App() {
   const [name, setName] = useState("Muhammad Zahir");
-  const names = ["Muhammad Zahir", "Web Designer", "Mern stack Developer"];
+  const names = ["Muhammad Zahir", "Web Designer", "Mern stack Developer", "From Pakistan"];
   const [currentIndex, setCurrentIndex] = useState(0);
   const [currentCharIndex, setCurrentCharIndex] = useState(0);
 
@@ -58,13 +57,14 @@ export default function App() {
     <>
       <div className='bg-slate-900 w-full block md:flex lg:flex text-white'>
         <div className='w-full md:w-1/2 lg:w-1/2 flex-shrink-0 gap-10 lg:m-24'>
-          <motion.h2 className='text-2xl lg:text-5xl font-extrabold ml-6 py-2' variants={nameVariants} initial="hidden" animate="visible">
-            Hello!<br />I Am {name}<span className='text-gray-400'>|</span>
+          <motion.h2 className='text-2xl lg:text-5xl font-extrabold ml-6 py-2 font-serif' variants={nameVariants} initial="hidden" animate="visible">
+            Hello!<br />I'm <span className='text-yellow-400'>{name}</span>
           </motion.h2>
-          <motion.p className='p-2 mt-6' variants={textVariants} initial="hidden" animate="visible">
+          <motion.p className='p-2 mt-6 font-sans' variants={textVariants} initial="hidden" animate="visible">
             I'm a Web Developer with extensive experience for over 2 years. My expertise is to create Front-End & Back-End of a web application
           </motion.p>
-          <button className='mt-10 ml-4 items-center bg-slate-900 text-white p-3 border border-white rounded-full hover:bg-blue-800 font-bold'>Contact Me</button>
+          <button className='my-10 mx-10 items-center bg-slate-900 text-white px-3 py-2 border-2 border-white rounded-full hover:bg-yellow-400 active:bg-yellow-200 font-semibold font-sans'>
+            Email Me</button>
         </div>
         <div className='lg:flex w-full md:w-1/2 lg:w-1/2 m-0'>
           <img src="zkpo.png" alt="Zkpahore" />
@@ -75,7 +75,6 @@ export default function App() {
       <Img />
       <MyPrt />
       <Con />
-      <Footer />
     </>
   );
 }

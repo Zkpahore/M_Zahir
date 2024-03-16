@@ -1,6 +1,7 @@
 // src/components/About.js
 import React from 'react';
 import { motion } from 'framer-motion';
+import Img from './Img';
 
 const About = () => {
   const colors = ['#ff0000', '#00ff00', '#0000ff', '#ffff00', '#ff00ff', '#8811ff']; 
@@ -9,14 +10,14 @@ const About = () => {
   const iterm = ['Express_Js', 'Node_Js', 'Mongoose', 'Rest_API', 'MongoDB'];
 
   return (
-    
+    <>
     <div className='md:flex lg:flex gap-4'>
     <motion.div
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       exit={{ opacity: 0, y: 20 }}
       transition={{ duration: 0.5 }}
-      className="section p-4 bg-gray-100 rounded-lg shadow-md w-full md:w-3/6 lg:w-3/6 flex flex-wrap"
+      className="section p-4 bg-slate-900 lg:bg-gray-100 md:bg-gray-100 text-white lg:text-black md:text-black rounded-lg shadow-md w-full md:w-3/6 lg:w-3/6 flex flex-wrap"
     >
       <h2 className="text-2xl font-bold mb-4">About Me</h2>
       <motion.div
@@ -145,6 +146,9 @@ const About = () => {
       </motion.div>
     </motion.div>
     </div>
+    <hr className='border-4 border-slate-700'/>
+    <Img />
+  </>
   );
 };
 
