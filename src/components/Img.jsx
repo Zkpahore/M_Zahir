@@ -20,10 +20,12 @@ export default function Img() {
               <div className="text-sm lg:text-base font-semibold text-gray-600">Seller at Fiverr</div>
             </div>
           </div>
-          <a href="https://www.fiverr.com/zahirkhp" target="_blank" rel="noopener noreferrer" className="text-sm lg:text-xs font-semibold text-blue-500 hover:text-blue-700">View Profile</a>
+          <a href="https://www.fiverr.com/zahirkhp" target="_blank" rel="noopener noreferrer"
+           className="text-sm lg:text-xs font-bold text-blue-500 hover:text-blue-700 border bg-slate-950 p-3 rounded-lg">View Profile</a>
+          
         </div>
         <div className="mt-4 text-base lg:text-lg text-gray-700">
-          <p className="text-purple-600">I am Available For Freelancer!</p>
+          <p className="text-purple-60 font-serif font-bold text-slate-900">I am Available For Freelancer!</p>
         </div>
       </div>
     </div>
