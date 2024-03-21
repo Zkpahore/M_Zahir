@@ -19,7 +19,7 @@ function Header() {
     <>
     <header className="hidden md:flex lg:flex bg-gray-800 py-4 w-full">
     <nav className="container mx-auto px-4">
-    <ul className="flex items-center">
+    <ul className="flex items-center space-x-4">
     {navLinks.map((link, index) => (
     <li key={index}>
     <Link
