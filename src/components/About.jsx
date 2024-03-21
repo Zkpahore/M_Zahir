@@ -11,13 +11,13 @@ const About = () => {
 
   return (
     <>
-    <div className='md:flex lg:flex gap-4'>
+    <div className='md:flex lg:flex gap-4 bg-slate-700'>
     <motion.div
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       exit={{ opacity: 0, y: 20 }}
       transition={{ duration: 0.5 }}
-      className="section p-4 bg-slate-900 lg:bg-gray-100 md:bg-gray-100 text-white lg:text-black md:text-black rounded-lg shadow-md w-full md:w-3/6 lg:w-3/6 flex flex-wrap"
+      className="section p-4 bg-gradient-to-br from-red-500 to-gray-900 lg:bg-gray-100 md:bg-gray-100 text-white  rounded-lg shadow-md w-full md:w-3/6 lg:w-3/6 flex flex-wrap"
     >
       <h2 className="text-2xl font-bold mb-4">About Me</h2>
       <motion.div
@@ -49,7 +49,7 @@ const About = () => {
             initial={{ opacity: 0, x: -20 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ delay: 0.8, duration: 0.5 }}
-            className="text-gray-600"
+            className="text-slate-900 font-serif font-semibold"
           >
             MERN Stack Developer
           </motion.p>
@@ -77,14 +77,14 @@ const About = () => {
       </motion.div>
     </motion.div>
 
-<hr className='block md:hidden lg:hidden border-4'/>
+{/* <hr className='block md:hidden lg:hidden border-4'/> */}
 
     <motion.div
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       exit={{ opacity: 0, y: 20 }}
       transition={{ duration: 0.5 }}
-      className="section p-2 bg-gray-100 rounded-lg shadow-md w-full md:w-3/6 lg:w-3/6 flex flex-wrap"
+      className="section p-2 bg-gradient-to-br from-red-500 to-gray-900 rounded-lg shadow-md w-full md:w-3/6 lg:w-3/6 flex flex-wrap"
     >
       <h2 className="text-2xl font-bold my-1 mx-2">Skills</h2>
       <motion.div

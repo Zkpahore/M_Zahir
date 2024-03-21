@@ -12,14 +12,14 @@ export default function Services() {
         I create tailored solutions that impress and perform. Let's make your online presence shine!
             </p>
       </div>
-     <div className='flex flex-wrap justify-center items-center py-10'>
-  <div className='box-border border-gray-500 border-2 text-center w-80 lg:h-60 p-2 mx-2 my-2'>
+     <div className='flex flex-wrap justify-center items-center py-10 gap-6'>
+  <div className='box-border border-gray-500 border-2 text-center w-80 lg:h-60 p-2 mx-2 my-2 transform transition duration-400 hover:scale-105'>
     <p className='text-4xl'><FaCss3Alt className='bg-yellow-400 rounded-full p-1 mx-auto m-2'/></p>
     <h3 className='m-1 text-xl font-bold'>Web Design</h3>
     <p className='m-1'>Tailwind CSS experts crafting responsive designs for seamless adaptability across all devices.
      Empowering clients with functionality and aesthetics, staying ahead in the digital realm.</p>
   </div>
-  <div className='box-border border-gray-500 border-2 text-center w-80 lg:h-60 p-2 mx-2 my-2'>
+  <div className='box-border border-gray-500 border-2 text-center w-80 lg:h-60 p-2 mx-2 my-2 transform transition duration-400 hover:scale-105'>
     <p className='text-4xl'><FaReact className='bg-yellow-400 rounded-full p-1 mx-auto m-2'/></p>
     <h3 className='m-1 text-xl font-bold'>Web Development</h3>
     <p className='m-1'>Harness the power of MERN stack for versatile, full-stack web development.
@@ -27,7 +27,7 @@ export default function Services() {
     for robust solutions tailored to your needs.</p>
   </div>
 
-       <div className='box-border border-gray-500 border-2 text-center w-80 lg:h-60 p-2 mx-2 my-2'>
+       <div className='box-border border-gray-500 border-2 text-center w-80 lg:h-60 p-2 mx-2 my-2 transform transition duration-400 hover:scale-105'>
        <p className='text-4xl'> <FaCode className='bg-yellow-400 rounded-full p-1 mx-auto m-2'/></p>
        <h3 className='m-1 text-xl font-bold'>Clean Code</h3>
        <p className='m-1'>Craft code with precision and clarity for optimal readability and maintainability.

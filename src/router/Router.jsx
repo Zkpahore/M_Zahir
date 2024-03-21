@@ -3,7 +3,7 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Header from '../header/Header';
 import About from '../components/About';
 import ProfileCard from '../components/ProfileCard';
-import Users from '../components/Users';
+import Users from '../components/ContactUs';
 import Home from '../components/App';
 import Footer from '../components/Footer';
 function Router() {
@@ -15,7 +15,7 @@ function Router() {
       <Route path="/" element={<Home />} />
         <Route path="/about" element={<About />} />
         <Route path="/My_Projects" element={<ProfileCard />} />
-        <Route path="/Contact_Us" element={<Users />} />
+        <Route path="/Contact_Us" element={<Users theme="dark"/>} />
        
       </Routes>
       <Footer />

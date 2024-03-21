@@ -63,7 +63,9 @@ export default function App() {
           <motion.p className='p-2 mt-6 font-sans' variants={textVariants} initial="hidden" animate="visible">
             I'm a Web Developer with extensive experience for over 2 years. My expertise is to create Front-End & Back-End of a web application
           </motion.p>
-          <button className='my-10 mx-10 items-center bg-slate-900 text-white px-3 py-2 border-2 border-white rounded-full hover:bg-yellow-400 active:bg-yellow-200 font-semibold font-sans'>
+          <button className='my-10 mx-10 items-center bg-slate-900 text-white px-3 py-2 border-2
+           border-white rounded-full hover:bg-yellow-400 active:bg-yellow-200 font-semibold font-sans transform transition duration-400 hover:scale-110'
+           onClick={() => window.open('mailto:zahirpahore@gmail.com', '_blank')}>
             Email Me</button>
         </div>
         <div className='lg:flex w-full md:w-1/2 lg:w-1/2 m-0'>

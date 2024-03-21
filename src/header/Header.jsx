@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { RiMenu2Fill } from "react-icons/ri";
+
 function Header() {
   const [isOpen, SetIsOpen] = useState(false);
   const HandleClick = () => {
@@ -10,7 +11,6 @@ function Header() {
   const navLinks = [
     { path: '/', text: 'Home' },
     { path: '/about', text: 'About' },
-    { path: '/My_Projects', text: 'Projects' },
     { path: '/Contact_Us', text: 'Contact' }
     
   ];
@@ -54,10 +54,6 @@ function Header() {
     ))}
   </ul>
 </nav>
-
-
-
-
 
     </>
   );

@@ -19,7 +19,7 @@ function Dashboard() {
          <pre className="my-6">Phone No  : +923142718479</pre>
          <pre className="my-6">Email     : Zahirpahore@gmail.com</pre>                                 
          </div>
-         <button className="border py-3 px-4 my-10 mx-6 cursor-pointer hover:bg-yellow-400 active:bg-yellow-200 font-bold rounded-full text-center">
+         <button className="border py-3 px-4 my-10 mx-6 cursor-pointer hover:bg-yellow-400 active:bg-yellow-200 font-bold rounded-full text-center transform transition duration-400 hover:scale-110">
           <i className="fa fa-download"></i> Download Cv</button>
       </div>
     </div>
