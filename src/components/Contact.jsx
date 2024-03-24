@@ -27,6 +27,9 @@ const Contact = () => {
     message: ''
   });
 
+  // State to manage the display of outside message
+  const [showOutsideMessage, setShowOutsideMessage] = useState(false);
+
   // Function to handle form input changes
   const handleChange = e => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -35,11 +38,27 @@ const Contact = () => {
   // Function to handle form submission
   const handleSubmit = async e => {
     e.preventDefault();
-    try {
-      // Push form data to Firebase database
-      await push(ref(db, 'messages'), formData);
 
-      console.log('Message sent successfully!');
+    const formIsEmpty = Object.values(formData).every(value => value.trim() === '');
+    
+    try {
+      if (formIsEmpty) {
+        setShowOutsideMessage(true); // Show outside message if form is empty
+      } else {
+        // Push form data to Firebase database
+        await push(ref(db, 'messages'), formData);
+        console.log('Message sent successfully!');
+        
+        // Clear the form after submission
+        setFormData({
+          name: '',
+          email: '',
+          subject: '',
+          message: ''
+        });
+        
+        setShowOutsideMessage(false); // Hide outside message after successful submission
+      }
     } catch (error) {
       console.error('Error sending message:', error);
     }
@@ -52,6 +71,9 @@ const Contact = () => {
         Please fill out the form below, and we'll get back to you promptly:
       </p>
       <form className='text-center w-full justify-center items-center' onSubmit={handleSubmit}>
+        {showOutsideMessage && (
+          <p className="text-red-500 text-sm mb-4">Please fill out the form.</p>
+        )}
         <input className='rounded-t-md w-4/6 my-2 border-2 border-white bg-slate-800 text-white' type='text' placeholder='  Name' name='name' value={formData.name} onChange={handleChange} />
         <br />
         <input className='w-2/6 my-2 border-2 border-white bg-slate-800 text-white' type='email' placeholder='  Email' name='email' value={formData.email} onChange={handleChange} />
