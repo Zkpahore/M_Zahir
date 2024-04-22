@@ -10,11 +10,11 @@ const Myrt = () => {
       p: 'I have developed an innovative e-commerce platform using React with Vite for efficient performance and Tailwind CSS for sleek styling.'
     },
     {
-      img:  'cars.jpg',
+      img:  'FireShot.png',
       p: 'I have crafted a  web application tailored for rental car services in our city for luxurious vehicle booking and customer experiences.'
     },
     {
-      img:  'pro.jpg',
+      img:  'jhh.png',
       p: 'I have developed an innovative e-commerce platform using React with Vite for efficient performance and Tailwind CSS for sleek styling.'
     }
     
@@ -46,7 +46,7 @@ const Myrt = () => {
 const Data2Component = () => {
   const imagel = [
     'eCommerce.jpg',
-    'pro.jpg',
+    'jhh.png',
     
   ];
 
@@ -81,8 +81,8 @@ const Data2Component = () => {
 
 const Data3Component = () => {
   const imager = [
-    'eCommerce.jpg',
-    'cars.jpg',
+    'jhh.png',
+    'FireShot.png',
   ];
 
   return (
