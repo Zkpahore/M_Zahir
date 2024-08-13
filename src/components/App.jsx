@@ -6,6 +6,9 @@ import MyPrt from './MyPort';
 import Img from './Img';
 import Con from './Contact';
 import '../App.css';
+import About from './About';
+import ContactUs from './ContactUs';
+import Skills from './Skills'
 
 const nameVariants = {
   hidden: { opacity: 0, x: -20 },
@@ -32,8 +35,8 @@ const textVariants = {
 };
 
 export default function App() {
-  const [name, setName] = useState("Muhammad Zahir");
-  const names = ["Muhammad Zahir", "Web Designer", "Mern stack Developer", "From Pakistan"];
+  const [name, setName] = useState("WordPress Developer");
+  const names = ["WordPress Developer", "Web Designer", "Mern stack Developer",];
   const [currentIndex, setCurrentIndex] = useState(0);
   const [currentCharIndex, setCurrentCharIndex] = useState(0);
 
@@ -56,10 +59,11 @@ export default function App() {
   return (
     <>
       <div className='bg-slate-900 w-full block md:flex lg:flex text-white'>
-        <div className='w-full md:w-1/2 lg:w-1/2 flex-shrink-0 gap-10 lg:m-24'>
-          <motion.h2 className='text-2xl lg:text-5xl font-extrabold ml-6 py-2 font-serif' variants={nameVariants} initial="hidden" animate="visible">
-            Hello!<br />I'm <span className='text-yellow-400'>{name}</span>
-          </motion.h2>
+      <div className='pt-10'></div>
+        <div className='w-full md:w-1/2 lg:w-1/2 flex-shrink-0 gap-10 lg:m-24 md:m-6'>
+          <motion.h1 className='text-2xl lg:text-5xl font-extrabold ml-6 py-2 font-serif' variants={nameVariants} initial="hidden" animate="visible">
+            Hello!  _  I'm <br /><span className='bg-gradient-to-r from-yellow-600 via-orange-500 to-indigo-400 inline-block text-transparent bg-clip-text'>{name}</span>
+          </motion.h1>
           <motion.p className='p-2 mt-6 font-sans' variants={textVariants} initial="hidden" animate="visible">
             I'm a Web Developer with extensive experience for over 2 years. My expertise is to create Front-End & Back-End of a web application
           </motion.p>
@@ -69,14 +73,17 @@ export default function App() {
             Email Me</button>
         </div>
         <div className='lg:flex w-full md:w-1/2 lg:w-1/2 m-0'>
-          <img src="zkpo.png" alt="Zkpahore" />
+          <img src="zkpo.png" alt="Zkpahore Muhammad Zahir web developer" />
         </div>
       </div>
-      <Dash />
+      {/* <Dash /> */}
+      <About />
+      <Skills />
       <Serv />
       <Img />
       <MyPrt />
       <Con />
+      <ContactUs />
     </>
   );
 }

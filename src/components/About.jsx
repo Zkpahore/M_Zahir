@@ -1,155 +1,34 @@
-// src/components/About.js
 import React from 'react';
 import { motion } from 'framer-motion';
-import Img from './Img';
 
 const About = () => {
-  const colors = ['#ff0000', '#00ff00', '#0000ff', '#ffff00', '#ff00ff', '#8811ff']; 
-
-  const items = ['Html_5', 'React_Js', 'Tailwind_Css', 'Css', 'ES6', 'Vite_frame', 'React_Router'];
-  const iterm = ['Express_Js', 'Node_Js', 'Mongoose', 'Rest_API', 'MongoDB'];
-
   return (
-    <>
-    <div className='md:flex lg:flex gap-4 bg-slate-700'>
-    <motion.div
-      initial={{ opacity: 0, y: 20 }}
-      animate={{ opacity: 1, y: 0 }}
-      exit={{ opacity: 0, y: 20 }}
-      transition={{ duration: 0.5 }}
-      className="section p-4 bg-gradient-to-br from-red-500 to-gray-900 lg:bg-gray-100 md:bg-gray-100 text-white  rounded-lg shadow-md w-full md:w-3/6 lg:w-3/6 flex flex-wrap"
-    >
-      <h2 className="text-2xl font-bold mb-4">About Me</h2>
+    <div className='w-full flex'>
       <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ delay: 0.2, duration: 0.5 }}
-        className="card items-center"
+        className="hidden md:w-1/2 lg:w-1/2 md:flex lg:flex"
+        initial={{ opacity: 0, x: -50 }}
+        whileInView={{ opacity: 1, x: 0 }}
+        transition={{ duration: 0.6 }}
+        viewport={{ once: true }}
       >
-        <div className="profile-image mr-4">
-          <motion.img
-            initial={{ scale: 0.8 }}
-            animate={{ scale: 1 }}
-            transition={{ delay: 0.4, duration: 0.5, type: 'spring', stiffness: 100 }}
-            src="zkpahore.jpg"
-            alt="Profile"
-            className="rounded-full w-24 h-24 object-cover"
-          />
-        </div>
-        <div className="details">
-          <motion.h3
-            initial={{ opacity: 0, x: -20 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ delay: 0.6, duration: 0.5 }}
-            className="text-lg font-bold my-4"
-          >
-            Muhammad Zahir
-          </motion.h3>
-          <motion.p
-            initial={{ opacity: 0, x: -20 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ delay: 0.8, duration: 0.5 }}
-            className="text-slate-900 font-serif font-semibold"
-          >
-            MERN Stack Developer
-          </motion.p>
-          <motion.div
-            initial={{ opacity: 0, x: -20 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ delay: 1, duration: 0.5 }}
-            className="social-icons flex mt-2"
-          >
-            <div
-              href="#"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="mr-2"
-            >
-            <p>Hello, I'm Muhammad Zahir, a MERN (MongoDB, Express.js, React.js, Node.js)
-             stack developer passionate about building robust and scalable web applications.
-             With proficiency in both frontend and backend technologies,
-             I specialize in creating dynamic and responsive web solutions that meet client needs and exceed expectations.
-             From database design and API development to user interface implementation,
-              I leverage the power of the MERN stack to deliver efficient and user-friendly applications.</p>
-            </div>
-          </motion.div>
-        </div>
+        <img src="zkpahore.jpg" className="" />
       </motion.div>
-    </motion.div>
 
-{/* <hr className='block md:hidden lg:hidden border-4'/> */}
-
-    <motion.div
-      initial={{ opacity: 0, y: 20 }}
-      animate={{ opacity: 1, y: 0 }}
-      exit={{ opacity: 0, y: 20 }}
-      transition={{ duration: 0.5 }}
-      className="section p-2 bg-gradient-to-br from-red-500 to-gray-900 rounded-lg shadow-md w-full md:w-3/6 lg:w-3/6 flex flex-wrap"
-    >
-      <h2 className="text-2xl font-bold my-1 mx-2">Skills</h2>
       <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ delay: 0.2, duration: 0.5 }}
-        className="card items-center"
+        className='bg-slate-700 text-center justify-center items-center text-white p-6 lg:w-3/4 md:w-3/4'
+        initial={{ opacity: 0, y: 50 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6 }}
+        viewport={{ once: true }}
       >
-        <br />
-       
-        <div className="details">
-          <motion.h3
-            initial={{ opacity: 0, x: -20 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ delay: 0.6, duration: 0.5 }}
-            className="text-lg font-bold my-4">
-            Front_End
-          </motion.h3>
-          
-          <motion.div
-            initial={{ opacity: 0, x: -20 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ delay: 1, duration: 0.5 }}
-            className="social-icons flex mt-2">
-        <ol className='flex flex-wrap'>
-        {items.map((item, index) => (
-          <li key={index} style={{ borderColor: colors[index % colors.length] }} className="border-2 p-2 m-2 rounded-lg bg-slate-700 text-white">
-            {item}
-          </li>
-        ))}
-      </ol>
-            
-          </motion.div>
-        </div>
-        <div className="details">
-          <motion.h3
-            initial={{ opacity: 0, x: -20 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ delay: 0.6, duration: 0.5 }}
-            className="text-lg font-bold my-4">
-            Back_End
-          </motion.h3>
-          
-          <motion.div
-            initial={{ opacity: 0, x: -20 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ delay: 1, duration: 0.5 }}
-            className="social-icons flex mt-2">
-        <ol className='flex flex-wrap'>
-        {iterm.map((item, index) => (
-          <li key={index} style={{ borderColor: colors[index % colors.length] }} className="border-2 p-2 m-2 rounded:md bg-slate-700 text-white">
-            {item}
-          </li>
-        ))}
-      </ol>
-            
-          </motion.div>
-        </div>
+        <h2 className='text-3xl py-6'><span className='text-yellow-400'>About</span> Me</h2>
+        <p className='py-2'>Hello, I'm Muhammad Zahir, a passionate and dedicated developer specializing in both the MERN (MongoDB, Express.js, React.js, Node.js) stack and WordPress. My journey in web development has been driven by a love for creating robust, scalable, and user-centric web applications that not only meet but exceed client expectations.</p>
+        <p className='py-2'>With a strong foundation in both frontend and backend technologies, I take pride in building dynamic and responsive web solutions. On the backend, I design efficient databases and develop powerful APIs, ensuring that the data flow is seamless and the application architecture is solid. On the frontend, I focus on crafting intuitive and engaging user interfaces, leveraging the versatility of React.js to create experiences that are both aesthetically pleasing and highly functional.</p>
+        <p className='py-2'>My expertise isn't limited to coding alone. As an SEO expert, I understand the importance of visibility in the digital landscape. I ensure that every web application I develop is optimized for search engines, helping businesses reach their target audience more effectively and drive organic traffic. By integrating SEO best practices into the development process, I enhance the online presence of my clients, ensuring their websites rank higher in search results.</p>
+        <p className='py-2'>Ultimately, my goal is to deliver web applications that are not only technically sound but also user-friendly and impactful. I believe in the power of technology to transform businesses and am committed to using my skills to create solutions that drive success.</p>
       </motion.div>
-    </motion.div>
     </div>
-    <hr className='border-4 border-slate-700'/>
-    <Img />
-  </>
-  );
-};
+  )
+}
 
 export default About;

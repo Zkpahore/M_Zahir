@@ -9,7 +9,7 @@ import Footer from '../components/Footer';
 function Router() {
   return (
     <BrowserRouter>
-      <Header />
+      {/* <Header /> */}
     
       <Routes>
       <Route path="/" element={<Home />} />
@@ -18,7 +18,7 @@ function Router() {
         <Route path="/Contact_Us" element={<Users theme="dark"/>} />
        
       </Routes>
-      <Footer />
+      {/* <Footer /> */}
     </BrowserRouter>
   );
 }
