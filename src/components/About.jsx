@@ -1,8 +1,10 @@
 import React from 'react';
 import { motion } from 'framer-motion';
+import SkillsProgressBars from './Skills';
 
 const About = () => {
   return (
+    <>
     <div className='w-full flex'>
       <motion.div
         className="hidden md:w-1/2 lg:w-1/2 md:flex lg:flex"
@@ -28,6 +30,8 @@ const About = () => {
         <p className='py-2'>Ultimately, my goal is to deliver web applications that are not only technically sound but also user-friendly and impactful. I believe in the power of technology to transform businesses and am committed to using my skills to create solutions that drive success.</p>
       </motion.div>
     </div>
+    <SkillsProgressBars />
+    </>
   )
 }
 

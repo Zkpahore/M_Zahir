@@ -1,24 +1,19 @@
 import React from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import Header from '../header/Header';
-import About from '../components/About';
 import ProfileCard from '../components/ProfileCard';
-import Users from '../components/ContactUs';
 import Home from '../components/App';
-import Footer from '../components/Footer';
+import Users from '../components/Users';
+import Dashboard from '../components/Dashboard';
 function Router() {
   return (
     <BrowserRouter>
-      {/* <Header /> */}
-    
+     
       <Routes>
       <Route path="/" element={<Home />} />
-        <Route path="/about" element={<About />} />
         <Route path="/My_Projects" element={<ProfileCard />} />
-        <Route path="/Contact_Us" element={<Users theme="dark"/>} />
-       
+        <Route path='/user/pro' element={<Users />} />
+        <Route path='/dash' element={<Dashboard />} />
       </Routes>
-      {/* <Footer /> */}
     </BrowserRouter>
   );
 }

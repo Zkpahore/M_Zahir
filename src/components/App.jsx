@@ -1,14 +1,8 @@
 import React, { useState, useEffect } from 'react';
-import { motion } from 'framer-motion'; // Import motion from Framer Motion
-import Dash from './Dashboard';
-import Serv from './Services';
-import MyPrt from './MyPort';
-import Img from './Img';
+import { motion } from 'framer-motion';
 import Con from './Contact';
-import '../App.css';
 import About from './About';
 import ContactUs from './ContactUs';
-import Skills from './Skills'
 
 const nameVariants = {
   hidden: { opacity: 0, x: -20 },
@@ -76,14 +70,7 @@ export default function App() {
           <img src="zkpo.png" alt="Zkpahore Muhammad Zahir web developer" />
         </div>
       </div>
-      {/* <Dash /> */}
       <About />
-      <Skills />
-      <Serv />
-      <Img />
-      <MyPrt />
-      <Con />
-      <ContactUs />
     </>
   );
 }

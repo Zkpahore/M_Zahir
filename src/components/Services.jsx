@@ -1,5 +1,6 @@
 import React from 'react';
 import { FaCss3Alt, FaCode, FaReact, FaWordpressSimple, FaBriefcase, FaSearch, FaShoppingCart, FaChartBar, FaLightbulb, FaCogs, FaBolt, FaArrowsAlt, FaTools, FaPenNib, FaMobileAlt } from "react-icons/fa";
+import Img from './Img';
 
 export default function Services() {
   const services = [
@@ -66,6 +67,7 @@ export default function Services() {
   ];
 
   return (
+    <>
     <div className='bg-slate-700 w-full text-white'>
       <div className='text-center'>
         <h2 className='font-bold text-5xl p-6 pt-24'>My <span className='text-yellow-500'>Services</span></h2>
@@ -90,5 +92,7 @@ export default function Services() {
         ))}
       </div>
     </div>
+<Img />
+    </>
   );
 }

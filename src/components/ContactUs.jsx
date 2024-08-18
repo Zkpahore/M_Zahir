@@ -1,6 +1,6 @@
 import React from 'react';
 import { FiMail, FiFacebook, FiTwitter, FiLinkedin } from 'react-icons/fi';
-
+import Contactr from './Contact';
 const Contact = () => {
   const handleIconHover = (event) => {
     event.target.style.color = '#EF4444'; 
@@ -13,6 +13,7 @@ const Contact = () => {
   };
 
   return (
+    <>
     <div className="min-h-screen flex justify-center items-center bg-slate-800">
       <div className="max-w-4xl bg-white rounded-lg p-8 shadow-md">
         <h2 className="text-3xl font-bold mb-4 text-center">Get in Touch</h2>
@@ -37,6 +38,8 @@ const Contact = () => {
         </div>
       </div>
     </div>
+    <Contactr />
+    </>
   );
 };
 

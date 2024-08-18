@@ -1,4 +1,6 @@
 import React from 'react';
+import MyPrt from './MyPort';
+import ContactUs from './ContactUs';
 
 export default function Img() {
   return (
@@ -54,7 +56,8 @@ export default function Img() {
         </div>
       </div>
     </div>
-   
+   <MyPrt />
+   <ContactUs />
     </>
   );
 }

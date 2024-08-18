@@ -1,4 +1,5 @@
 import React from 'react';
+import Services from './Services';
 
 function Certificate() {
   const certificates = [
@@ -23,6 +24,7 @@ function Certificate() {
   ];
 
   return (
+    <>
     <div className='bg-slate-700 text-white py-12'>
       <h3 className="text-3xl font-bold mb-8 text-center">
         My <span className='text-yellow-500'>Certificates</span>
@@ -37,6 +39,8 @@ function Certificate() {
         ))}
       </div>
     </div>
+<Services />
+    </>
   );
 }
 
