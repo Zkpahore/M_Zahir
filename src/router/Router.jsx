@@ -10,8 +10,8 @@ function Router() {
      
       <Routes>
       <Route path="/" element={<Home />} />
-        <Route path="/My_Projects" element={<ProfileCard />} />
-        <Route path='/user/pro' element={<Users />} />
+        <Route path="/Article" element={<ProfileCard />} />
+        <Route path='/zkpahore-profile' element={<Users />} />
         <Route path='/dash' element={<Dashboard />} />
       </Routes>
     </BrowserRouter>

@@ -14,11 +14,12 @@ const defaultOptions = {
     preserveAspectRatio: 'xMidYMid slice'
   }
 };
+const img = "zkpahore.jpg"
 
 const Users = () => {
   return (
-    <div className="flex flex-wrap w-full lg:w-3/4">
-      <div className='flex flex-shrink-0 w-full lg:w-1/3 h-screen'>
+    <div className="flex flex-wrap w-full bg-slate-900">
+      <div className='flex flex-shrink-0 w-full h-screen justify-center'>
       <motion.div
         initial={{ opacity: 0, y: -50 }}
         animate={{ opacity: 1, y: 0 }}
@@ -26,13 +27,16 @@ const Users = () => {
         className="w-full max-w-lg rounded-lg overflow-hidden shadow-lg bg-white m-2"
       >
         
-        <div className="w-full h-32 bg-blue-500"><h1 className='text-center font-semibold text-3xl pt-6 text-white'>Mern Stack Developer</h1></div>
+        <div className="w-full h-32 bg-blue-500">
+          <img src='card.png' />
+          {/* <h1 className='text-center font-semibold text-3xl pt-6 text-white'>Mern Stack Developer</h1> */}
+          </div>
     
 
         {/* Profile Picture */}
         <div className="flex justify-center mt-px">
           <motion.img
-            src="zkpahore.jpg"
+            src={img}
             alt="Profile"
             className="rounded-full h-24 w-24 border-4 border-white -mt-12"
             initial={{ scale: 0 }}
@@ -96,7 +100,7 @@ const Users = () => {
         </div>
       </motion.div>
       </div>
-      <motion.div initial={{ opacity: 0, y: 20 }}
+      {/* <motion.div initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.8, duration: 0.10 }} className='flex flex-wrap w-full lg:w-1/2 flex-shrink-0  text-white'>
        
@@ -105,7 +109,7 @@ const Users = () => {
         height={500}
         width={500}
       />
-      </motion.div>
+      </motion.div> */}
     </div>
    
   );
