@@ -39,7 +39,7 @@ export default function Img() {
                   </div>
                   <div>
                     <h2 className="text-2xl font-bold text-slate-800">zahirkhp</h2>
-                    <p className="text-sm font-semibold text-slate-600 mt-1">Top-Rated Seller on Fiverr</p>
+                    <p className="text-sm font-semibold text-slate-600 mt-1">Seller on Fiverr</p>
                   </div>
                 </div>
 

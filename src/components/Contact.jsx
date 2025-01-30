@@ -1,89 +1,152 @@
 import React, { useState } from 'react';
 import { initializeApp } from 'firebase/app';
 import { getDatabase, ref, push } from 'firebase/database';
+import { toast } from 'react-toastify';
+import { FiUser, FiMail, FiMessageSquare, FiSend } from 'react-icons/fi';
 
-const firebaseConfig = {
-  // Your Firebase configuration
-   apiKey: "AIzaSyDI2g8w8qL3x_MohRC4svoHf2khX5iDxJg",
+// Initialize Firebase (consider moving this to a separate config file)
+const firebaseApp = initializeApp({
+  apiKey: "AIzaSyDI2g8w8qL3x_MohRC4svoHf2khX5iDxJg",
     authDomain: "todo-app-ef68e.firebaseapp.com",
     projectId: "todo-app-ef68e",
     storageBucket: "todo-app-ef68e.appspot.com",
     messagingSenderId: "56703889128",
     appId: "1:56703889128:web:f1bad2f5cc2d18f29f235d",
     measurementId: "G-Y4XRMZ53Z0"
-};
+});
 
-// Initialize Firebase outside of the component
-const firebaseApp = initializeApp(firebaseConfig);
 const db = getDatabase(firebaseApp);
 
-// React component
 const Contact = () => {
-  // State to manage form data
   const [formData, setFormData] = useState({
     name: '',
     email: '',
     subject: '',
     message: ''
   });
+  const [errors, setErrors] = useState({});
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
-  // State to manage the display of outside message
-  const [showOutsideMessage, setShowOutsideMessage] = useState(false);
+  const validateForm = () => {
+    const newErrors = {};
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
-  // Function to handle form input changes
-  const handleChange = e => {
-    setFormData({ ...formData, [e.target.name]: e.target.value });
+    if (!formData.name.trim()) newErrors.name = 'Name is required';
+    if (!formData.email.trim()) {
+      newErrors.email = 'Email is required';
+    } else if (!emailRegex.test(formData.email)) {
+      newErrors.email = 'Invalid email format';
+    }
+    if (!formData.message.trim()) newErrors.message = 'Message is required';
+
+    setErrors(newErrors);
+    return Object.keys(newErrors).length === 0;
   };
 
-  // Function to handle form submission
-  const handleSubmit = async e => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
+    if (!validateForm()) return;
 
-    const formIsEmpty = Object.values(formData).every(value => value.trim() === '');
-    
+    setIsSubmitting(true);
+
     try {
-      if (formIsEmpty) {
-        setShowOutsideMessage(true); // Show outside message if form is empty
-      } else {
-        // Push form data to Firebase database
-        await push(ref(db, 'messages'), formData);
-        console.log('Message sent successfully!');
-        
-        // Clear the form after submission
-        setFormData({
-          name: '',
-          email: '',
-          subject: '',
-          message: ''
-        });
-        
-        setShowOutsideMessage(false); // Hide outside message after successful submission
-      }
+      await push(ref(db, 'messages'), formData);
+      toast.success('Message sent successfully!', {
+        position: 'bottom-center',
+        autoClose: 3000,
+      });
+      setFormData({ name: '', email: '', subject: '', message: '' });
     } catch (error) {
-      console.error('Error sending message:', error);
+      toast.error('Error sending message. Please try again.', {
+        position: 'bottom-center',
+        autoClose: 3000,
+      });
+      console.error('Submission error:', error);
+    } finally {
+      setIsSubmitting(false);
     }
   };
 
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData(prev => ({ ...prev, [name]: value }));
+    if (errors[name]) setErrors(prev => ({ ...prev, [name]: '' }));
+  };
+
   return (
-    <div className='bg-slate-800 justify-center items-center py-16 w-full'>
-      <h5 className='text-3xl text-center text-white font-semibold'>Contact <span className='text-yellow-600'>Us</span></h5>
-      <p className='text-center text-white py-6 px-6'>
-        Please fill out the form below, and we'll get back to you promptly:
-      </p>
-      <form className='text-center w-full justify-center items-center' onSubmit={handleSubmit}>
-        {showOutsideMessage && (
-          <p className="text-red-500 text-sm mb-4">Please fill out the form.</p>
-        )}
-        <input className='rounded-t-md w-4/6 my-2 border-2 border-white bg-slate-800 text-white' type='text' placeholder='  Name' name='name' value={formData.name} onChange={handleChange} />
-        <br />
-        <input className='w-2/6 my-2 border-2 border-white bg-slate-800 text-white' type='email' placeholder='  Email' name='email' value={formData.email} onChange={handleChange} />
-        <input className='w-2/6 my-2 border-2 border-white bg-slate-800 text-white' type='text' placeholder='  Subject' name='subject' value={formData.subject} onChange={handleChange} />
-        <br /> 
-        <textarea className='rounded-b-md w-4/6 my-2 h-32 border-2 border-white bg-slate-800 text-white' type='text' placeholder='  Your Message' name='message' value={formData.message} onChange={handleChange} />
-        <br />
-        <button className='my-2 bg-yellow-500 text-white py-2 px-4 rounded-full hover:bg-yellow-400 active:bg-yellow-200 font-semibold font-sans transform transition duration-400 hover:scale-110' type='submit'>Send Message</button>
-      </form>
-    </div>
+    <section className="min-h-screen bg-gradient-to-br from-slate-800 to-slate-900 py-16 px-4 sm:px-6 lg:px-8">
+      <div className="max-w-4xl mx-auto">
+        <div className="text-center mb-12">
+          <h2 className="text-4xl font-bold text-white mb-4">
+            Contact <span className="text-yellow-400">Us</span>
+          </h2>
+          <p className="text-slate-300 text-lg">
+            Have a question or want to work together? We'd love to hear from you!
+          </p>
+        </div>
+
+        <form onSubmit={handleSubmit} className="space-y-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div className="relative">
+              <FiUser className="absolute left-3 top-1/2 transform -translate-y-1/2 text-slate-400" />
+              <input
+                name="name"
+                value={formData.name}
+                onChange={handleChange}
+                placeholder="Your Name"
+                className="w-full pl-10 pr-4 py-3 bg-slate-700 border border-slate-600 rounded-lg text-white focus:outline-none focus:border-yellow-400 focus:ring-2 focus:ring-yellow-400/30 transition-all"
+              />
+              {errors.name && <span className="text-red-400 text-sm mt-1">{errors.name}</span>}
+            </div>
+
+            <div className="relative">
+              <FiMail className="absolute left-3 top-1/2 transform -translate-y-1/2 text-slate-400" />
+              <input
+                name="email"
+                type="email"
+                value={formData.email}
+                onChange={handleChange}
+                placeholder="Your Email"
+                className="w-full pl-10 pr-4 py-3 bg-slate-700 border border-slate-600 rounded-lg text-white focus:outline-none focus:border-yellow-400 focus:ring-2 focus:ring-yellow-400/30 transition-all"
+              />
+              {errors.email && <span className="text-red-400 text-sm mt-1">{errors.email}</span>}
+            </div>
+          </div>
+
+          <div className="relative">
+            <input
+              name="subject"
+              value={formData.subject}
+              onChange={handleChange}
+              placeholder="Subject (Optional)"
+              className="w-full px-4 py-3 bg-slate-700 border border-slate-600 rounded-lg text-white focus:outline-none focus:border-yellow-400 focus:ring-2 focus:ring-yellow-400/30 transition-all"
+            />
+          </div>
+
+          <div className="relative">
+            <FiMessageSquare className="absolute left-3 top-4 text-slate-400" />
+            <textarea
+              name="message"
+              value={formData.message}
+              onChange={handleChange}
+              placeholder="Your Message"
+              rows="5"
+              className="w-full pl-10 pr-4 py-3 bg-slate-700 border border-slate-600 rounded-lg text-white focus:outline-none focus:border-yellow-400 focus:ring-2 focus:ring-yellow-400/30 transition-all resize-none"
+            ></textarea>
+            {errors.message && <span className="text-red-400 text-sm mt-1">{errors.message}</span>}
+          </div>
+
+          <button
+            type="submit"
+            disabled={isSubmitting}
+            className="w-full md:w-auto px-8 py-3 bg-yellow-400 hover:bg-yellow-500 text-slate-900 font-semibold rounded-lg transition-all transform hover:scale-105 disabled:opacity-70 disabled:cursor-not-allowed flex items-center justify-center gap-2"
+          >
+            <FiSend className="text-lg" />
+            {isSubmitting ? 'Sending...' : 'Send Message'}
+          </button>
+        </form>
+      </div>
+    </section>
   );
 };
 
