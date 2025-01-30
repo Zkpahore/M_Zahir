@@ -2,7 +2,7 @@ import React from 'react';
 import { FaHtml5, FaCss3Alt, FaJsSquare, FaReact, FaNodeJs, FaWordpress } from 'react-icons/fa';
 import { SiTailwindcss, SiExpress, SiMongodb, SiMongoose, SiReactrouter, SiJavascript } from 'react-icons/si';
 import { MdApi } from 'react-icons/md';
-import Certificate from './Certificate';
+// import Certificate from './Certificate';
 
 const frontendSkills = [
   { name: 'HTML 5', level: 90, icon: <FaHtml5 className="text-orange-500" />, color: 'orange' },
@@ -103,7 +103,7 @@ const SkillsProgressBars = () => {
         />
       </div>
       
-      <Certificate />
+      {/* <Certificate /> */}
     </section>
   );
 };

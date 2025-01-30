@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import SkillsProgressBars from './Skills';
+// import SkillsProgressBars from './Skills';
 
 const About = () => {
   return (
@@ -83,7 +83,7 @@ const About = () => {
           transition={{ duration: 0.8, delay: 0.2 }}
           viewport={{ once: true }}
         >
-          <SkillsProgressBars />
+          {/* <SkillsProgressBars /> */}
         </motion.div>
       </div>
 

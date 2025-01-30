@@ -1,6 +1,6 @@
 import React from 'react';
-import MyPrt from './MyPort';
-import ContactUs from './ContactUs';
+// import MyPrt from './MyPort';
+// import ContactUs from './ContactUs';
 import { motion } from 'framer-motion';
 
 export default function Img() {
@@ -73,8 +73,8 @@ export default function Img() {
         </div>
       </section>
 
-      <MyPrt />
-      <ContactUs />
+      {/* <MyPrt />
+      <ContactUs /> */}
     </>
   );
 }

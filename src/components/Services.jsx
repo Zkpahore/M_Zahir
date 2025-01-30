@@ -1,5 +1,5 @@
 import React from 'react';
-import IMG from './Img';
+// import IMG from './Img';
 import {
   FaReact,
   FaWordpressSimple,
@@ -146,7 +146,7 @@ export default function Services() {
           </div>
         </div>
       </div>
-      <IMG />
+      {/* <IMG /> */}
     </>
   );
 }

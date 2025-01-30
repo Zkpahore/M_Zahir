@@ -1,6 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import About from './About';
+import SkillsProgressBars from './Skills';
+import Certificate from './Certificate';
+import Services from './Services';
+import IMG from './Img';
+import MyPrt from './MyPort';
+import ContactUs from './ContactUs';
 
 const nameVariants = {
   hidden: { opacity: 0, x: -40 },
@@ -130,6 +136,12 @@ export default function App() {
       </div>
 
       <About />
+      <SkillsProgressBars />
+      <Certificate />
+      <Services />
+      <IMG />
+      <MyPrt />
+      <ContactUs />
     </div>
   );
 }

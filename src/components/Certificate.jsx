@@ -1,5 +1,5 @@
 import React from 'react';
-import Services from './Services';
+// import Services from './Services';
 
 function Certificate() {
   const certificates = [
@@ -78,7 +78,7 @@ function Certificate() {
         backgroundSize: '32px 32px',
       }}></div>
 
-      <Services />
+      {/* <Services /> */}
     </section>
   );
 }
