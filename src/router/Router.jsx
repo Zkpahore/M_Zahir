@@ -7,7 +7,6 @@ import Dashboard from '../components/Dashboard';
 function Router() {
   return (
     <BrowserRouter>
-     
       <Routes>
       <Route path="/" element={<Home />} />
         <Route path="/Article" element={<ProfileCard />} />

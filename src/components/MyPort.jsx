@@ -1,179 +1,147 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-import 'tailwindcss/tailwind.css';
 
-const Myrt = () => {
-  const images = [
-    {
-      img: 'eCommerce.jpg',
-      p: 'I have developed an innovative e-commerce platform using React with Vite for efficient performance and Tailwind CSS for sleek styling.'
-    },
-    {
-      img: 'FireShot.png',
-      p: 'I have crafted a web application tailored for rental car services in our city for luxurious vehicle booking and customer experiences.'
-    },
-    {
-      img: 'jhh.png',
-      p: 'I have developed an innovative e-commerce platform using React with Vite for efficient performance and Tailwind CSS for sleek styling.'
-    }
-  ];
-
-  return (
-    <div className="flex justify-center items-center">
-      <div className="grid gap-4 md:gap-6 lg:gap-8 grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
-        {images.map((img, index) => (
-          <motion.div
-            key={index}
-            className="relative group bg-white rounded-lg shadow-lg overflow-hidden"
-            initial={{ opacity: 0, y: 50 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            viewport={{ once: true }}
-          >
-            <img
-              src={img.img}
-              alt={`Image ${index + 1}`}
-              className="w-full h-48 object-cover"
-            />
-            <div className="p-6">
-              <p className="text-gray-700 text-base">{img.p}</p>
-            </div>
-            <div className="absolute inset-0 bg-black bg-opacity-50 flex justify-center items-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-              <div className="space-x-4">
-                <a href="https://github.com/your-repo" target="_blank" className="bg-white text-black py-2 px-4 rounded">GitHub</a>
-                <a href="https://your-live-site.com" target="_blank" className="bg-white text-black py-2 px-4 rounded">View</a>
-              </div>
-            </div>
-          </motion.div>
-        ))}
-      </div>
-    </div>
-  );
-};
-
-const Data2Component = () => {
-  const imagel = [
-    'eCommerce.jpg',
-    'jhh.png',
-  ];
-
-  return (
-    <div className="flex justify-center items-center">
-      <div className="grid gap-4 md:gap-6 lg:gap-8 grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
-        {imagel.map((imageUrl, index) => (
-          <motion.div
-            key={index}
-            className="relative group bg-white rounded-lg shadow-lg overflow-hidden"
-            initial={{ opacity: 0, y: 50 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            viewport={{ once: true }}
-          >
-            <img
-              src={imageUrl}
-              alt={`Image ${index + 1}`}
-              className="w-full h-48 object-cover"
-            />
-            <div className="p-6">
-              <p className="text-gray-700 text-base">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-            </div>
-            <div className="absolute inset-0 bg-black bg-opacity-50 flex justify-center items-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-              <div className="space-x-4">
-                <a href="https://github.com/your-repo" target="_blank" className="bg-white text-black py-2 px-4 rounded">GitHub</a>
-                <a href="https://your-live-site.com" target="_blank" className="bg-white text-black py-2 px-4 rounded">View</a>
-              </div>
-            </div>
-          </motion.div>
-        ))}
-      </div>
-    </div>
-  );
-};
-
-const Data3Component = () => {
-  const imager = [
-    'jhh.png',
-    'FireShot.png',
-  ];
-
-  return (
-    <div className="flex justify-center items-center">
-      <div className="grid gap-4 md:gap-6 lg:gap-8 grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
-        {imager.map((imageUrl, index) => (
-          <motion.div
-            key={index}
-            className="relative group bg-white rounded-lg shadow-lg overflow-hidden"
-            initial={{ opacity: 0, y: 50 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            viewport={{ once: true }}
-          >
-            <img
-              src={imageUrl}
-              alt={`Image ${index + 1}`}
-              className="w-full h-48 object-cover"
-            />
-            <div className="p-6">
-              <p className="text-gray-700 text-base">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-            </div>
-            <div className="absolute inset-0 bg-black bg-opacity-50 flex justify-center items-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-              <div className="space-x-4">
-                <a href="https://github.com/your-repo" target="_blank" className="bg-white text-black py-2 px-4 rounded">GitHub</a>
-                <a href="https://your-live-site.com" target="_blank" className="bg-white text-black py-2 px-4 rounded">View</a>
-              </div>
-            </div>
-          </motion.div>
-        ))}
-      </div>
-    </div>
-  );
-};
-
-const NestedComponent = ({ data }) => {
-  return (
-    <div>
-      <p>{data}</p>
-    </div>
-  );
-};
-
-const MyPrt = () => {
-  const [displayedComponent, setDisplayedComponent] = useState(<Myrt />);
-
-  const handleButtonClick = (data) => {
-    switch (data) {
-      case "Myrt":
-        setDisplayedComponent(<Myrt />);
-        break;
-      case "Data 2":
-        setDisplayedComponent(<Data2Component />);
-        break;
-      case "Data 3":
-        setDisplayedComponent(<Data3Component />);
-        break;
-      default:
-        setDisplayedComponent(<NestedComponent data={data} />);
-    }
+const PortfolioGrid = ({ projects }) => {
+  const cardVariants = {
+    hidden: { opacity: 0, y: 50 },
+    visible: { opacity: 1, y: 0, transition: { duration: 0.6 } }
   };
 
   return (
-    <div className='w-full text-center text-white bg-slate-700 md:px-6 lg:px-20'>
-      <h4 className='text-3xl py-6'>My <span className='text-yellow-400'>Portfolio</span></h4>
-      <p className='px-4 Lg:px-40'>With expertise in the MERN stack, my portfolio showcases innovative projects with seamless integration of MongoDB,
-         Express.js, React.js, and Node.js. I prioritize clean code and intuitive design, delivering scalable web solutions tailored to client needs.
-          Let's connect and discuss how I can elevate your next project with my MERN stack skills.
-      </p>
-      <div className='py-10'>
-        <button className='m-2 lg:m-6 md:m-4 border-2 px-6 py-1 rounded-full border-yellow-200 hover:bg-yellow-400 focus:bg-yellow-400 font-semibold'
-          onClick={() => handleButtonClick("Myrt")}>All</button>
-        <button className='m-2 lg:m-6 md:m-4 border-2 px-3 py-1 rounded-full border-yellow-200 hover:bg-yellow-400 focus:bg-yellow-400 font-semibold'
-          onClick={() => handleButtonClick("Data 2")}>Designs</button>
-        <button className='m-2 lg:m-6 md:m-4 border-2 px-3 py-1 rounded-full border-yellow-200 hover:bg-yellow-400 focus:bg-yellow-400 font-semibold'
-          onClick={() => handleButtonClick("Data 3")}>Full Stack</button>
-
-        <div className='py-4'>{displayedComponent}</div>
-      </div>
+    <div className="grid gap-8 md:gap-10 lg:gap-12 grid-cols-1 md:grid-cols-2 lg:grid-cols-3 px-4">
+      {projects.map((project, index) => (
+        <motion.div
+          key={index}
+          className="relative group bg-gradient-to-br from-slate-800 to-slate-900 rounded-2xl overflow-hidden shadow-2xl hover:shadow-3xl"
+          variants={cardVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.5 }}
+        >
+          <div className="relative h-64 overflow-hidden">
+            <motion.img
+              src={project.img}
+              alt={project.alt}
+              className="w-full h-full object-cover"
+              whileHover={{ scale: 1.05 }}
+              transition={{ duration: 0.4 }}
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-slate-900/80 via-transparent to-transparent flex items-end p-6">
+              <p className="text-slate-200 text-sm font-medium">{project.description}</p>
+            </div>
+          </div>
+          
+          <div className="absolute inset-0 bg-gradient-to-t from-slate-900/90 to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center gap-4">
+            <motion.a
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              href={project.github}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="px-6 py-2 bg-yellow-400 text-slate-900 font-semibold rounded-full flex items-center gap-2"
+            >
+              <GithubIcon />
+              GitHub
+            </motion.a>
+            <motion.a
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              href={project.demo}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="px-6 py-2 border-2 border-yellow-400 text-yellow-400 font-semibold rounded-full"
+            >
+              Live Demo
+            </motion.a>
+          </div>
+        </motion.div>
+      ))}
     </div>
+  );
+};
+
+const GithubIcon = () => (
+  <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" viewBox="0 0 24 24">
+    <path fill="currentColor" d="M12 0C5.373 0 0 5.373 0 12c0 5.302 3.438 9.8 8.207 11.387.6.113.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0112 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.627-5.373-12-12-12z"/>
+  </svg>
+);
+
+const MyPrt = () => {
+  const [activeFilter, setActiveFilter] = useState('all');
+  
+  const projects = [
+    {
+      img: 'eCommerce.jpg',
+      alt: 'E-commerce Platform',
+      description: 'Innovative e-commerce platform built with React Vite and Tailwind CSS',
+      category: 'fullstack',
+      github: '#',
+      demo: '#'
+    },
+    {
+      img: 'FireShot.png',
+      alt: 'Car Rental Service',
+      description: 'Luxury car rental web application with real-time booking system',
+      category: 'design',
+      github: '#',
+      demo: '#'
+    },
+    {
+      img: 'jhh.png',
+      alt: 'E-commerce Solution',
+      description: 'High-performance e-commerce platform with MERN stack',
+      category: 'fullstack',
+      github: '#',
+      demo: '#'
+    }
+  ];
+
+  const filteredProjects = activeFilter === 'all' 
+    ? projects 
+    : projects.filter(project => project.category === activeFilter);
+
+  return (
+    <section className="w-full bg-gradient-to-br from-slate-800 to-slate-900 py-20 px-4 sm:px-6 lg:px-8">
+      <div className="max-w-7xl mx-auto text-center">
+        <motion.h4 
+          className="text-4xl lg:text-5xl font-bold mb-6"
+          initial={{ opacity: 0, y: -20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+        >
+          My <span className="text-yellow-400">Portfolio</span>
+        </motion.h4>
+        
+        <motion.p 
+          className="text-lg text-slate-400 max-w-3xl mx-auto mb-12"
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          transition={{ duration: 0.6, delay: 0.2 }}
+        >
+          Showcasing innovative MERN stack solutions with clean code and intuitive design. Let's collaborate to elevate your next project.
+        </motion.p>
+
+        <div className="flex flex-wrap justify-center gap-4 mb-16">
+          {['all', 'design', 'fullstack'].map((filter) => (
+            <motion.button
+              key={filter}
+              className={`px-6 py-2 rounded-full font-semibold transition-all ${
+                activeFilter === filter 
+                  ? 'bg-gradient-to-r from-yellow-400 to-orange-500 text-slate-900'
+                  : 'border-2 border-yellow-400 text-yellow-400 hover:bg-yellow-400/10'
+              }`}
+              onClick={() => setActiveFilter(filter)}
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+            >
+              {filter.charAt(0).toUpperCase() + filter.slice(1)}
+            </motion.button>
+          ))}
+        </div>
+
+        <PortfolioGrid projects={filteredProjects} />
+      </div>
+    </section>
   );
 };
 

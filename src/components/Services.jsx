@@ -1,98 +1,152 @@
 import React from 'react';
-import { FaCss3Alt, FaCode, FaReact, FaWordpressSimple, FaBriefcase, FaSearch, FaShoppingCart, FaChartBar, FaLightbulb, FaCogs, FaBolt, FaArrowsAlt, FaTools, FaPenNib, FaMobileAlt } from "react-icons/fa";
-import Img from './Img';
+import IMG from './Img';
+import {
+  FaReact,
+  FaWordpressSimple,
+  FaSearch,
+  FaShoppingCart,
+  FaChartBar,
+  FaLightbulb,
+  FaCogs,
+  FaBolt,
+  FaArrowsAlt,
+  FaTools,
+  FaPenNib,
+  FaMobileAlt,
+} from 'react-icons/fa';
+import { motion } from 'framer-motion';
 
 export default function Services() {
   const services = [
     {
-      icon: <FaReact className='bg-yellow-400 text-slate-700 rounded-full p-3 mx-auto m-4' />,
+      icon: <FaReact />,
       title: 'MERN Stack Web Development',
-      description: 'Build and maintain dynamic, responsive web apps using MongoDB, Express.js, React.js, and Node.js.'
+      description: 'Build and maintain dynamic, responsive web apps using MongoDB, Express.js, React.js, and Node.js.',
     },
     {
-      icon: <FaWordpressSimple className='bg-yellow-400 text-slate-700 rounded-full p-3 mx-auto m-4' />,
+      icon: <FaWordpressSimple />,
       title: 'Custom WordPress Solutions',
-      description: 'Create and optimize WordPress themes, plugins, and provide ongoing site maintenance.'
+      description: 'Create and optimize WordPress themes, plugins, and provide ongoing site maintenance.',
     },
     {
-      icon: <FaSearch className='bg-yellow-400 text-slate-700 rounded-full p-3 mx-auto m-4' />,
+      icon: <FaSearch />,
       title: 'SEO Optimization',
-      description: 'Improve site rankings through keyword research, on-page/off-page SEO, and content optimization.'
+      description: 'Improve site rankings through keyword research, on-page/off-page SEO, and content optimization.',
     },
     {
-      icon: <FaShoppingCart className='bg-yellow-400 text-slate-700 rounded-full p-3 mx-auto m-4' />,
+      icon: <FaShoppingCart />,
       title: 'E-commerce Development',
-      description: 'Develop and customize e-commerce platforms using MERN stack or WooCommerce.'
+      description: 'Develop and customize e-commerce platforms using MERN stack or WooCommerce.',
     },
     {
-      icon: <FaChartBar className='bg-yellow-400 text-slate-700 rounded-full p-3 mx-auto m-4' />,
+      icon: <FaChartBar />,
       title: 'Data Analysis',
-      description: 'Analyze business data, generate insights, and create visual dashboards.'
+      description: 'Analyze business data, generate insights, and create visual dashboards.',
     },
     {
-      icon: <FaLightbulb className='bg-yellow-400 text-slate-700 rounded-full p-3 mx-auto m-4' />,
+      icon: <FaLightbulb />,
       title: 'Business Consulting',
-      description: 'Provide business analysis, identify growth opportunities, and recommend tech solutions.'
+      description: 'Provide business analysis, identify growth opportunities, and recommend tech solutions.',
     },
     {
-      icon: <FaCogs className='bg-yellow-400 text-slate-700 rounded-full p-3 mx-auto m-4' />,
+      icon: <FaCogs />,
       title: 'API Development',
-      description: 'Design and integrate RESTful APIs for seamless data exchange between systems.'
+      description: 'Design and integrate RESTful APIs for seamless data exchange between systems.',
     },
     {
-      icon: <FaBolt className='bg-yellow-400 text-slate-700 rounded-full p-3 mx-auto m-4' />,
+      icon: <FaBolt />,
       title: 'Website Optimization',
-      description: 'Optimize website speed, performance, security, and mobile responsiveness.'
+      description: 'Optimize website speed, performance, security, and mobile responsiveness.',
     },
     {
-      icon: <FaArrowsAlt className='bg-yellow-400 text-slate-700 rounded-full p-3 mx-auto m-4' />,
+      icon: <FaArrowsAlt />,
       title: 'CMS Migration',
-      description: 'Migrate websites between CMS platforms with minimal downtime and data integrity.'
+      description: 'Migrate websites between CMS platforms with minimal downtime and data integrity.',
     },
     {
-      icon: <FaTools className='bg-yellow-400 text-slate-700 rounded-full p-3 mx-auto m-4' />,
+      icon: <FaTools />,
       title: 'Web Application Maintenance',
-      description: 'Provide ongoing support, updates, bug fixes, and feature enhancements for web applications.'
+      description: 'Provide ongoing support, updates, bug fixes, and feature enhancements for web applications.',
     },
     {
-      icon: <FaPenNib className='bg-yellow-400 text-slate-700 rounded-full p-3 mx-auto m-4' />,
+      icon: <FaPenNib />,
       title: 'Content Strategy and Management',
-      description: 'Develop content strategies, manage content updates, and ensure alignment with SEO goals.'
+      description: 'Develop content strategies, manage content updates, and ensure alignment with SEO goals.',
     },
     {
-      icon: <FaMobileAlt className='bg-yellow-400 text-slate-700 rounded-full p-3 mx-auto m-4' />,
+      icon: <FaMobileAlt />,
       title: 'UI/UX Design',
-      description: 'Design user-friendly interfaces and improve user experience for web and mobile applications.'
-    }
+      description: 'Design user-friendly interfaces and improve user experience for web and mobile applications.',
+    },
   ];
+
+  // Animation variants
+  const cardVariants = {
+    hidden: { opacity: 0, y: 20 },
+    visible: { opacity: 1, y: 0, transition: { duration: 0.5 } },
+  };
 
   return (
     <>
-    <div className='bg-slate-700 w-full text-white'>
-      <div className='text-center'>
-        <h2 className='font-bold text-5xl p-6 pt-24'>My <span className='text-yellow-500'>Services</span></h2>
-        <p className='m-6 text-lg'>
-          Ready to stand out online? I'm your go-to for top-notch web design and development services.<br />
-          From sleek websites to dynamic web apps,<br />
-          I create tailored solutions that impress and perform. Let's make your online presence shine!
-        </p>
-      </div>
-      <div className='flex flex-wrap justify-center items-stretch py-10 gap-8'>
-        {services.map((service, index) => (
-          <div 
-            key={index} 
-            className='bg-slate-800 flex flex-col justify-between box-border border-gray-500 border-2 text-center w-80 p-6 mx-2 my-4 transform transition duration-400 hover:scale-105 hover:bg-slate-600 hover:shadow-lg rounded-lg min-h-[340px]'
-          >
-            <div className='flex-grow'>
-              <p className='text-5xl'>{service.icon}</p>
-              <h3 className='mt-4 text-2xl font-semibold'>{service.title}</h3>
-              <p className='mt-2 text-base leading-relaxed'>{service.description}</p>
-            </div>
+      <div className="bg-gradient-to-br from-slate-800 to-slate-900 w-full text-white py-20 px-4 sm:px-6 lg:px-8">
+        <div className="max-w-7xl mx-auto">
+          {/* Section Header */}
+          <div className="text-center mb-16">
+            <motion.h2
+              className="text-4xl lg:text-5xl font-bold mb-4"
+              initial={{ opacity: 0, y: -20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6 }}
+            >
+              My <span className="text-yellow-400">Services</span>
+            </motion.h2>
+            <motion.p
+              className="text-lg text-slate-400"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+            >
+              Ready to stand out online? From sleek websites to dynamic web apps, I create tailored solutions that impress
+              and perform.
+            </motion.p>
           </div>
-        ))}
+
+          {/* Services Grid */}
+          <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+            {services.map((service, index) => (
+              <motion.div
+                key={index}
+                className="relative flex flex-col items-center text-center bg-slate-700 rounded-xl p-8 shadow-lg transform transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl group"
+                variants={cardVariants}
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true, amount: 0.5 }}
+              >
+                {/* Icon */}
+                <div className="text-yellow-400 text-5xl mb-6 group-hover:text-white transition-colors">
+                  {service.icon}
+                </div>
+
+                {/* Title */}
+                <h3 className="text-xl font-semibold mb-4 group-hover:text-yellow-400 transition-colors">
+                  {service.title}
+                </h3>
+
+                {/* Description */}
+                <p className="text-base text-slate-400 group-hover:text-slate-200 transition-colors">
+                  {service.description}
+                </p>
+
+                {/* Decorative Corner */}
+                <div className="absolute top-0 right-0 w-16 h-16 overflow-hidden">
+                  <div className="absolute -right-8 -top-8 w-16 h-16 bg-yellow-400 transform rotate-45 opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                </div>
+              </motion.div>
+            ))}
+          </div>
+        </div>
       </div>
-    </div>
-<Img />
+      <IMG />
     </>
   );
 }
