@@ -2,7 +2,6 @@ import React from 'react';
 import { FaHtml5, FaCss3Alt, FaJsSquare, FaReact, FaNodeJs, FaWordpress } from 'react-icons/fa';
 import { SiTailwindcss, SiExpress, SiMongodb, SiMongoose, SiReactrouter, SiJavascript } from 'react-icons/si';
 import { MdApi } from 'react-icons/md';
-// import Certificate from './Certificate';
 
 const frontendSkills = [
   { name: 'HTML 5', level: 90, icon: <FaHtml5 className="text-orange-500" />, color: 'orange' },
@@ -30,7 +29,7 @@ const SkillCategory = ({ title, skills, categoryColor }) => {
   return (
     <div className="mb-12">
       <h3 className="text-2xl font-bold text-white mb-8 relative inline-block">
-        <span className={`bg-gradient-to-r from-${categoryColor}--500 to-${categoryColor}-700 text-transparent bg-clip-text`}>
+        <span className={`bg-gradient-to-r from-${categoryColor}--500 to-${categoryColor}-700 text-yellow-300 bg-clip-text`}>
           {title}
         </span>
         <span className={`absolute bottom-0 left-0 w-full h-1 bg-gradient-to-r from-${categoryColor}-500 to-transparent rounded-full`} />
@@ -102,8 +101,6 @@ const SkillsProgressBars = () => {
           categoryColor="purple" 
         />
       </div>
-      
-      {/* <Certificate /> */}
     </section>
   );
 };
