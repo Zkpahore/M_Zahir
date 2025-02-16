@@ -11,7 +11,7 @@ function Router() {
       <Route path="/" element={<Home />} />
         <Route path="/Article" element={<ProfileCard />} />
         <Route path='/zkpahore-profile' element={<Users />} />
-        <Route path='/dash' element={<Dashboard />} />
+        <Route path='/ResumeCard' element={<Dashboard />} />
       </Routes>
     </BrowserRouter>
   );
