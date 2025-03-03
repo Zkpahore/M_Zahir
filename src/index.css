@@ -1,6 +1,5 @@
 @tailwind base;
 @tailwind components;
-<<<<<<< HEAD
 @tailwind utilities;
 
 /* body{
@@ -9,6 +8,3 @@
     width: 100%;
 
 } */
-=======
-@tailwind utilities;
->>>>>>> 419e851414907003ee8c1035a6e0151df8e9ecf4
