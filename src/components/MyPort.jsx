@@ -1,18 +1,22 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 
-const PortfolioGrid = ({ projects }) => {
-  const cardVariants = {
-    hidden: { opacity: 0, y: 50 },
-    visible: { opacity: 1, y: 0, transition: { duration: 0.6 } }
-  };
+const cardVariants = {
+  hidden: { opacity: 0, y: 50 },
+  visible: { 
+    opacity: 1, 
+    y: 0, 
+    transition: { duration: 0.6, ease: "easeOut" } 
+  }
+};
 
+const PortfolioGrid = ({ projects }) => {
   return (
-    <div className="grid gap-8 md:gap-10 lg:gap-12 grid-cols-1 md:grid-cols-2 lg:grid-cols-3 px-4">
+    <div className="grid gap-8 sm:gap-10 md:gap-12 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
       {projects.map((project, index) => (
         <motion.div
           key={index}
-          className="relative group bg-gradient-to-br from-slate-800 to-slate-900 rounded-2xl overflow-hidden shadow-2xl hover:shadow-3xl"
+          className="relative group bg-gradient-to-br from-gray-800 to-gray-900 rounded-2xl overflow-hidden shadow-xl hover:shadow-2xl transition-shadow duration-300"
           variants={cardVariants}
           initial="hidden"
           whileInView="visible"
@@ -22,23 +26,22 @@ const PortfolioGrid = ({ projects }) => {
             <motion.img
               src={project.img}
               alt={project.alt}
-              className="w-full h-full object-cover"
+              className="w-full h-full object-cover transition-transform duration-300"
               whileHover={{ scale: 1.05 }}
-              transition={{ duration: 0.4 }}
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-slate-900/80 via-transparent to-transparent flex items-end p-6">
-              <p className="text-slate-200 text-sm font-medium">{project.description}</p>
+            <div className="absolute inset-0 bg-gradient-to-t from-gray-900/80 via-transparent to-transparent flex items-end p-6">
+              <p className="text-gray-200 text-sm font-medium">{project.description}</p>
             </div>
           </div>
           
-          <div className="absolute inset-0 bg-gradient-to-t from-slate-900/90 to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center gap-4">
+          <div className="absolute inset-0 bg-gradient-to-t from-gray-900/90 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center gap-4">
             <motion.a
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
               href={project.github}
               target="_blank"
               rel="noopener noreferrer"
-              className="px-6 py-2 bg-yellow-400 text-slate-900 font-semibold rounded-full flex items-center gap-2"
+              className="px-6 py-2 bg-yellow-400 text-gray-900 font-semibold rounded-full flex items-center gap-2"
             >
               <GithubIcon />
               GitHub
@@ -66,33 +69,33 @@ const GithubIcon = () => (
   </svg>
 );
 
-const MyPrt = () => {
+const PortfolioSection = () => {
   const [activeFilter, setActiveFilter] = useState('all');
   
   const projects = [
     {
-      img: 'eCommerce.jpg',
-      alt: 'E-commerce Platform',
-      description: 'Innovative e-commerce platform built with React Vite and Tailwind CSS',
+      img: 'mweb.png',
+      alt: 'Movie Web App',
+      description: 'A dynamic movie web platform built with React, Vite, and Tailwind CSS.',
       category: 'fullstack',
-      github: '#',
-      demo: '#'
+      github: 'https://github.com/Zkpahore/MoviesWeb.git',
+      demo: 'https://movies-web-ten.vercel.app'
     },
     {
-      img: 'FireShot.png',
-      alt: 'Car Rental Service',
-      description: 'Luxury car rental web application with real-time booking system',
+      img: 'funtrip.png', 
+      alt: 'Travel Booking',
+      description: 'A comprehensive travel booking platform with interactive maps and real-time availability.',
       category: 'design',
-      github: '#',
-      demo: '#'
+      github: 'https://github.com/Zkpahore/FunTrip.git',
+      demo: 'https://fun-trip.vercel.app/'
     },
     {
-      img: 'jhh.png',
-      alt: 'E-commerce Solution',
-      description: 'High-performance e-commerce platform with MERN stack',
+      img: 'jhn.png',
+      alt: 'E-commerce Platform',
+      description: 'Innovative e-commerce platform built with React, Vite, and Tailwind CSS.',
       category: 'fullstack',
-      github: '#',
-      demo: '#'
+      github: 'https://github.com/Zkpahore/E-Commerce-.git',
+      demo: 'https://e-commerce-murex-ten.vercel.app'
     }
   ];
 
@@ -101,33 +104,33 @@ const MyPrt = () => {
     : projects.filter(project => project.category === activeFilter);
 
   return (
-    <section className="w-full bg-gradient-to-br from-slate-800 to-slate-900 py-20 px-4 sm:px-6 lg:px-8">
+    <section className="w-full bg-gradient-to-br from-gray-800 to-gray-900 py-20 px-4 sm:px-6 lg:px-8">
       <div className="max-w-7xl mx-auto text-center">
-        <motion.h4 
-          className="text-4xl lg:text-5xl font-bold mb-6"
+        <motion.h2 
+          className="text-4xl sm:text-5xl font-bold text-white mb-6"
           initial={{ opacity: 0, y: -20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
         >
           My <span className="text-yellow-400">Portfolio</span>
-        </motion.h4>
+        </motion.h2>
         
         <motion.p 
-          className="text-lg text-slate-400 max-w-3xl mx-auto mb-12"
+          className="text-lg text-gray-300 max-w-3xl mx-auto mb-12"
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           transition={{ duration: 0.6, delay: 0.2 }}
         >
-          Showcasing innovative MERN stack solutions with clean code and intuitive design. Let's collaborate to elevate your next project.
+          Showcasing innovative solutions with clean code and intuitive design. Explore projects that combine creativity with technical excellence.
         </motion.p>
 
         <div className="flex flex-wrap justify-center gap-4 mb-16">
           {['all', 'design', 'fullstack'].map((filter) => (
             <motion.button
               key={filter}
-              className={`px-6 py-2 rounded-full font-semibold transition-all ${
+              className={`px-6 py-2 rounded-full font-semibold transition-colors duration-300 focus:outline-none ${
                 activeFilter === filter 
-                  ? 'bg-gradient-to-r from-yellow-400 to-orange-500 text-slate-900'
+                  ? 'bg-gradient-to-r from-yellow-400 to-orange-500 text-gray-900'
                   : 'border-2 border-yellow-400 text-yellow-400 hover:bg-yellow-400/10'
               }`}
               onClick={() => setActiveFilter(filter)}
@@ -145,4 +148,4 @@ const MyPrt = () => {
   );
 };
 
-export default MyPrt;
+export default PortfolioSection;
