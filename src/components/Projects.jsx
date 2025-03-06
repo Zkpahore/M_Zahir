@@ -7,7 +7,7 @@ const Projects = () => {
       date: "Jan 10/2024",
       description: "A comprehensive travel booking platform with real-time availability checks and interactive maps. Implemented secure payment processing and user review system.",
       tags: ["React.js", "Tailwind CSS", "React Icons", "Node.js"],
-      image: "FireShot.png",
+      image: "funtrip.png",
       alt: "Travel Web Design"
     },
     {
