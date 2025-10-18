@@ -1,151 +1,302 @@
-import React, { useState } from 'react';
-import { motion } from 'framer-motion';
+import { useState, useEffect } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
 
-const cardVariants = {
-  hidden: { opacity: 0, y: 50 },
-  visible: { 
-    opacity: 1, 
-    y: 0, 
-    transition: { duration: 0.6, ease: "easeOut" } 
-  }
-};
-
-const PortfolioGrid = ({ projects }) => {
-  return (
-    <div className="grid gap-8 sm:gap-10 md:gap-12 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
-      {projects.map((project, index) => (
-        <motion.div
-          key={index}
-          className="relative group bg-gradient-to-br from-gray-800 to-gray-900 rounded-2xl overflow-hidden shadow-xl hover:shadow-2xl transition-shadow duration-300"
-          variants={cardVariants}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, amount: 0.5 }}
-        >
-          <div className="relative h-64 overflow-hidden">
-            <motion.img
-              src={project.img}
-              alt={project.alt}
-              className="w-full h-full object-cover transition-transform duration-300"
-              whileHover={{ scale: 1.05 }}
-            />
-            <div className="absolute inset-0 bg-gradient-to-t from-gray-900/80 via-transparent to-transparent flex items-end p-6">
-              <p className="text-gray-200 text-sm font-medium">{project.description}</p>
-            </div>
-          </div>
-          
-          <div className="absolute inset-0 bg-gradient-to-t from-gray-900/90 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center gap-4">
-            <motion.a
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              href={project.github}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="px-6 py-2 bg-yellow-400 text-gray-900 font-semibold rounded-full flex items-center gap-2"
-            >
-              <GithubIcon />
-              GitHub
-            </motion.a>
-            <motion.a
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              href={project.demo}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="px-6 py-2 border-2 border-yellow-400 text-yellow-400 font-semibold rounded-full"
-            >
-              Live Demo
-            </motion.a>
-          </div>
-        </motion.div>
-      ))}
-    </div>
-  );
-};
-
-const GithubIcon = () => (
-  <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" viewBox="0 0 24 24">
-    <path fill="currentColor" d="M12 0C5.373 0 0 5.373 0 12c0 5.302 3.438 9.8 8.207 11.387.6.113.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0112 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.627-5.373-12-12-12z"/>
-  </svg>
-);
-
-const PortfolioSection = () => {
+const Projects = () => {
   const [activeFilter, setActiveFilter] = useState('all');
-  
-  const projects = [
+  const [projects, setProjects] = useState([]);
+
+  const projectsData = [
     {
-      img: 'mweb.png',
-      alt: 'Movie Web App',
-      description: 'A dynamic movie web platform built with React, Vite, and Tailwind CSS.',
-      category: 'fullstack',
-      github: 'https://github.com/Zkpahore/MoviesWeb.git',
-      demo: 'https://movies-web-ten.vercel.app'
+      id: 1,
+      category: 'mern',
+      web: 'https://e-commerce-murex-ten.vercel.app/',
+      code: 'https://github.com/Zkpahore/E-Commerce-',
+      icon: '🛒',
+      title: 'E-Commerce Platform',
+      description: 'Full-featured online store with user authentication, product catalog, shopping cart, and payment integration.',
+      tech: ['React', 'Node.js', 'MongoDB', 'Stripe API'],
+      date: 'Feb 2024',
+      gradient: 'from-purple-500 to-cyan-500'
     },
     {
-      img: 'funtrip.png', 
-      alt: 'Travel Booking',
-      description: 'A comprehensive travel booking platform with interactive maps and real-time availability.',
-      category: 'design',
-      github: 'https://github.com/Zkpahore/FunTrip.git',
-      demo: 'https://fun-trip.vercel.app/'
+      id: 2,
+      category: 'mern',
+      icon: '📊',
+      title: 'Project Management Tool',
+      description: 'Collaborative platform for teams to manage projects, tasks, and deadlines in real-time.',
+      tech: ['MERN Stack', 'Socket.io', 'JWT', 'Material UI'],
+      date: 'Mar 2023',
+      gradient: 'from-orange-500 to-yellow-500'
     },
     {
-      img: 'jhn.png',
-      alt: 'E-commerce Platform',
-      description: 'Innovative e-commerce platform built with React, Vite, and Tailwind CSS.',
+      id: 3,
+      category: 'react',
+      icon: '✍️',
+      title: 'Blogging Platform',
+      description: 'Content management system for creating, editing, and publishing blog posts with rich text editor.',
+      tech: ['React', 'Firebase', 'Quill Editor', 'Cloudinary'],
+      date: 'Jun 2023',
+      gradient: 'from-blue-500 to-indigo-600'
+    },
+    {
+      id: 4,
+      category: 'wordpress',
+      icon: '💬',
+      title: 'Real-time Chat Application',
+      description: 'Real-time messaging app with multiple rooms, user authentication, and message history.',
+      tech: ['Node.js', 'Socket.io', 'Express', 'MongoDB'],
+      date: 'Aug 2023',
+      gradient: 'from-purple-600 to-pink-500'
+    },
+    {
+      id: 5,
       category: 'fullstack',
-      github: 'https://github.com/Zkpahore/E-Commerce-.git',
-      demo: 'https://e-commerce-murex-ten.vercel.app'
+      icon: '🎬',
+      title: 'Movie Database',
+      description: 'Comprehensive movie database with search, filtering, user reviews, and watchlist features.',
+      tech: ['React', 'Node.js', 'PostgreSQL', 'OMDb API'],
+      date: 'Oct 2023',
+      gradient: 'from-cyan-500 to-blue-500'
+    },
+    {
+      id: 6,
+      category: 'mern',
+      icon: '📈',
+      title: 'Analytics Dashboard',
+      description: 'Comprehensive analytics dashboard with data visualization, reporting, and real-time metrics.',
+      tech: ['React', 'Express', 'MongoDB', 'Chart.js'],
+      date: 'Dec 2023',
+      gradient: 'from-yellow-500 to-orange-500'
     }
   ];
 
-  const filteredProjects = activeFilter === 'all' 
-    ? projects 
-    : projects.filter(project => project.category === activeFilter);
+  const filters = [
+    { key: 'all', label: 'All Projects' },
+    { key: 'mern', label: 'MERN Stack' },
+    { key: 'react', label: 'React' },
+    { key: 'wordpress', label: 'WordPress' },
+    { key: 'fullstack', label: 'Full Stack' }
+  ];
+
+  useEffect(() => {
+    if (activeFilter === 'all') {
+      setProjects(projectsData);
+    } else {
+      setProjects(projectsData.filter(project => project.category === activeFilter));
+    }
+  }, [activeFilter]);
+
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.1
+      }
+    }
+  };
+
+  const itemVariants = {
+    hidden: { opacity: 0, y: 20 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: 0.5,
+        ease: "easeOut"
+      }
+    }
+  };
 
   return (
-    <section className="w-full bg-gradient-to-br from-gray-800 to-gray-900 py-20 px-4 sm:px-6 lg:px-8">
-      <div className="max-w-7xl mx-auto text-center">
-        <motion.h2 
-          className="text-4xl sm:text-5xl font-bold text-white mb-6"
-          initial={{ opacity: 0, y: -20 }}
+    <section id="projects" className="min-h-screen bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900 py-16 lg:py-24 px-4 relative overflow-hidden">
+      {/* Background Elements */}
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-purple-900/20 via-transparent to-transparent" />
+      <div className="absolute top-20 right-10 w-72 h-72 bg-cyan-500/10 rounded-full blur-3xl" />
+      <div className="absolute bottom-20 left-10 w-96 h-96 bg-purple-500/10 rounded-full blur-3xl" />
+
+      <div className="container mx-auto px-4 relative z-10">
+        {/* Header Section */}
+        <motion.div
+          className="text-center mb-16 lg:mb-20"
+          initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
+          viewport={{ once: true }}
         >
-          My <span className="text-yellow-400">Portfolio</span>
-        </motion.h2>
-        
-        <motion.p 
-          className="text-lg text-gray-300 max-w-3xl mx-auto mb-12"
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          transition={{ duration: 0.6, delay: 0.2 }}
-        >
-          Showcasing innovative solutions with clean code and intuitive design. Explore projects that combine creativity with technical excellence.
-        </motion.p>
+          <motion.div
+            className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-slate-800/50 border border-slate-700/50 backdrop-blur-sm mb-6"
+            whileHover={{ scale: 1.02 }}
+          >
+            <div className="w-2 h-2 bg-gradient-to-r from-purple-500 to-cyan-500 rounded-full animate-pulse" />
+            <span className="text-sm font-medium text-cyan-300">My Work</span>
+          </motion.div>
 
-        <div className="flex flex-wrap justify-center gap-4 mb-16">
-          {['all', 'design', 'fullstack'].map((filter) => (
+          <h2 className="text-4xl lg:text-5xl font-bold mb-6">
+            <span className="bg-gradient-to-r from-purple-400 to-cyan-400 bg-clip-text text-transparent">
+              Featured Projects
+            </span>
+          </h2>
+          
+          <motion.p
+            className="text-lg text-slate-400 max-w-2xl mx-auto leading-relaxed"
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            transition={{ delay: 0.2 }}
+          >
+            A collection of my recent projects showcasing modern web development technologies and innovative solutions
+          </motion.p>
+        </motion.div>
+
+        {/* Filter Buttons */}
+        <motion.div 
+          className="flex flex-wrap justify-center gap-3 mb-12 lg:mb-16"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.3 }}
+          viewport={{ once: true }}
+        >
+          {filters.map((filter) => (
             <motion.button
-              key={filter}
-              className={`px-6 py-2 rounded-full font-semibold transition-colors duration-300 focus:outline-none ${
-                activeFilter === filter 
-                  ? 'bg-gradient-to-r from-yellow-400 to-orange-500 text-gray-900'
-                  : 'border-2 border-yellow-400 text-yellow-400 hover:bg-yellow-400/10'
+              key={filter.key}
+              className={`px-6 py-3 rounded-xl font-medium text-sm lg:text-base transition-all duration-300 backdrop-blur-sm border ${
+                activeFilter === filter.key 
+                  ? 'bg-gradient-to-r from-purple-500 to-cyan-500 text-white border-transparent shadow-lg shadow-purple-500/25' 
+                  : 'bg-slate-800/50 text-slate-300 border-slate-700/50 hover:border-cyan-500/30 hover:text-cyan-300'
               }`}
-              onClick={() => setActiveFilter(filter)}
+              onClick={() => setActiveFilter(filter.key)}
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
             >
-              {filter.charAt(0).toUpperCase() + filter.slice(1)}
+              {filter.label}
             </motion.button>
           ))}
-        </div>
+        </motion.div>
 
-        <PortfolioGrid projects={filteredProjects} />
+        {/* Projects Grid */}
+        <motion.div
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-7xl mx-auto"
+          variants={containerVariants}
+          initial="hidden"
+          animate="visible"
+          key={activeFilter}
+        >
+          <AnimatePresence mode="wait">
+            {projects.map((project) => (
+              <ProjectCard key={project.id} project={project} variants={itemVariants} />
+            ))}
+          </AnimatePresence>
+        </motion.div>
+
+        {/* Empty State */}
+        {projects.length === 0 && (
+          <motion.div
+            className="text-center py-16"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.5 }}
+          >
+            <div className="text-6xl mb-4">🔍</div>
+            <h3 className="text-2xl font-bold text-slate-300 mb-2">No projects found</h3>
+            <p className="text-slate-400">Try selecting a different category to see more projects.</p>
+          </motion.div>
+        )}
       </div>
     </section>
   );
 };
 
-export default PortfolioSection;
+const ProjectCard = ({ project, variants }) => {
+  return (
+    <motion.div
+      className="group relative"
+      variants={variants}
+      layout
+      whileHover={{ y: -5 }}
+    >
+      {/* Background Glow */}
+      <div className={`absolute -inset-0.5 bg-gradient-to-r ${project.gradient} rounded-2xl blur opacity-0 group-hover:opacity-30 transition duration-300`} />
+      
+      {/* Main Card */}
+      <div className="relative bg-slate-800/50 backdrop-blur-sm rounded-xl border border-slate-700/50 overflow-hidden transition-all duration-300 group-hover:border-cyan-500/30 h-full flex flex-col">
+        {/* Project Header */}
+        <div className={`h-32 bg-gradient-to-br ${project.gradient} relative overflow-hidden`}>
+          <div className="absolute inset-0 flex items-center justify-center text-white text-5xl">
+            {project.icon}
+          </div>
+          
+          {/* Overlay Actions */}
+          <div className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center gap-4">
+            <motion.a
+              href={project.web}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="w-12 h-12 bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center text-white hover:bg-white/30 transition-all duration-300 border border-white/20"
+              whileHover={{ scale: 1.1 }}
+              whileTap={{ scale: 0.9 }}
+            >
+              ↗
+            </motion.a>
+            <motion.a
+              href={project.code}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="w-12 h-12 bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center text-white hover:bg-white/30 transition-all duration-300 border border-white/20"
+              whileHover={{ scale: 1.1 }}
+              whileTap={{ scale: 0.9 }}
+            >
+              ⎘
+            </motion.a>
+          </div>
+        </div>
+
+        {/* Project Content */}
+        <div className="p-6 flex-1 flex flex-col">
+          {/* Category Badge */}
+          <div className="flex justify-between items-start mb-4">
+            <span className="inline-block px-3 py-1 bg-slate-700/50 text-cyan-300 rounded-full text-xs font-medium border border-cyan-500/30">
+              {project.category === 'mern' ? 'MERN Stack' : 
+               project.category === 'react' ? 'React' :
+               project.category === 'wordpress' ? 'WordPress' : 'Full Stack'}
+            </span>
+            <span className="text-slate-400 text-sm">{project.date}</span>
+          </div>
+
+          {/* Title & Description */}
+          <h3 className="text-xl font-semibold text-white mb-3 leading-tight">
+            {project.title}
+          </h3>
+          <p className="text-slate-400 text-sm leading-relaxed mb-4 flex-1">
+            {project.description}
+          </p>
+
+          {/* Tech Stack */}
+          <div className="flex flex-wrap gap-2 mb-4">
+            {project.tech.map((tech, index) => (
+              <span 
+                key={index}
+                className="px-2.5 py-1 bg-slate-700/30 text-slate-300 rounded-lg text-xs font-medium border border-slate-600/50"
+              >
+                {tech}
+              </span>
+            ))}
+          </div>
+
+          {/* View Details Link */}
+          <motion.a
+            href={project.web}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-2 text-cyan-400 text-sm font-medium group/link mt-auto"
+            whileHover={{ gap: 3 }}
+          >
+            View Project
+            <span className="group-hover/link:translate-x-1 transition-transform">→</span>
+          </motion.a>
+        </div>
+      </div>
+    </motion.div>
+  );
+};
+
+export default Projects;
